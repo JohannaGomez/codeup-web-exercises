@@ -2,17 +2,48 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Welcome to Veridian Dynamics!</title>
+        <title>Register with us</title>
     </head>
     <body>
-        <form method="POST" action="https://requestb.in/1ft3d931">
+        <form method="GET" action="https://requestb.in/1ft3d931">
 
-            <label for="username">Username</label>
-            <input id="username" name="username" type="text">
+            <label for="email">email</label>
+            <input id="email" name="email" type="text">
             <br>
 
             <label for="password">Password</label>
             <input id="password" name="password" type="password">
+            <br>
+
+            <label for="bio"><h4>Biography</h4></label>
+            <textarea id="bio" name="bio" rows="5" cols="40"></textarea>
+            <br>
+
+            <p>how did you hear about US?</p>
+                <label>
+                    <input type="checkbox" name="q1" value="billboard">
+                    billboard
+                </label>
+                <label>
+                    <input type="checkbox" name="q1" value="radio advertisement">
+                    radio advertisement
+                </label>
+                <label>
+                    <input type="checkbox" name="q1" value="internet ad">
+                    internet ad
+                </label>
+                <label>
+                    <input type="checkbox" name="q1" value="others">
+                    others
+                </label>
+            </p>
+
+            <label for="webrowser">What webrowser are you using?</label>
+            <select id="webrowser" name="webrowser[]" multiple>
+                <option value="Chrome">Chrome</option>
+                <option value="Safari">Safari</option>
+            </select>
+
             <br>
 
             <input type="submit">
