@@ -2,49 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome exercise</title>
-    <style>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Veridian dynamics</title>
+    <!--<style>
         .fancy-header {
-            color: red;
+            color: blue;
+            text-decoration: underline;
         }
-    </style>
+    </style> -->
 
     <!--<style>
         body {
             background-color: aqua;
         }
     </style> -->
+    <!--<style>
+        body {
+            color: aqua;
+            background-color: coral;
+        }
+        .purple {
+            color: green;
+        }
+        .first_item {
+            font-weight: bold;
+        }
+        #plan {
+            color: lime;
+        }
 
+        /* decendant selector */
+        ol span {
+            color: black;
+            font-size: 4em;
+        }
+
+        header>h1 {
+            background-color: lawngreen;
+        }
+
+        /* unvisited link (:link) */
+        a:link {
+            color:red;
+        }
+
+        /* visited link (:visited) */
+        a:visited {
+            color:black;
+        }
+
+        /* mouse hover over link (:hover) */
+        a:hover {
+            color:snow;
+            background-color: steelblue;
+        }
+
+        /* active/selected link (:active) */
+        a:active {
+            color:green;
+        }
+
+    </style> -->
 </head>
 <body>
     <a id="top"></a>
-    <section id="header">
-        <!--<h2>"Hi everybody"</h2>-->
+    <header>
         <!-- <h1 style="color:red">Welcome to Veridian Dynamics!</h1> -->
+        <!-- <h1 class="fancy-header">Welcome to Veridian Dynamics!</h1> -->
         <h1>Welcome to Veridian Dynamics!</h1>
         <p>At Veridian Dynamics, <strong>we</strong> solve your problems with <em>technology</em></p>
         <hr>
-    </section>
+    </header>
+    <h1><a href="#">click here to speed up your computer</a></h1>
     <div>
         <h2>Core Values</h2>
         <ul>
-            <li>Competence</li>
-            <li>Involment</li>
-            <li>Technology</li>
+            <li class="purple first_item">Competence</li>
+            <li class="purple">Involment</li>
+            <li class="purple">Technology</li>
         </ul>
     </div>
     <div>
         <h2>Our Process</h2>
         <ol>
-            <li>Plan</li>
-            <li>Evaluate</li>
-            <li>Implement</li>
+            <li id="plan" class="purple first_item"><span>P</span>lan</li>
+            <li class="purple">Evaluate</li>
+            <li class="purple">Implement</li>
         </ol>
     </div>
     <div>
         <h2>2020 Vision</h2>
         <ul>
-            <li>Becomen # 1 in Technology</li>
+            <li>Becomen # 1 in <span>T</span>echnology</li>
             <li>Increase success by 20%</li>
             <li>Increase business by 30%</li>
         </ul>

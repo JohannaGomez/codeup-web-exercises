@@ -1,0 +1,50 @@
+#string
+
+.fancy-header {
+    color: purple;
+    text-decoration: underline;
+}
+h1 {
+    text-align: center;
+}
+
+header {
+    color: purple;
+    text-decoration: underline;
+}
+
+body {
+    font-family: 'Germania One', cursive;
+    color: aqua;
+    background-color: coral;
+    background-image: url(https://static.pexels.com/photos/370799/pexels-photo-370799.jpeg);
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+ul {
+    text-decoration: underline;
+}
+
+/* unvisited link (:link) */
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:snow;
+    background-color: steelblue;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}
