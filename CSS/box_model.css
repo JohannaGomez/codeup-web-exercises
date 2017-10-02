@@ -1,43 +1,40 @@
 .box {
-    border: black;
+    border: 1px solid black;
     width: 150px;
     height: 50px;
     padding: 10px;
     font-weight: bold;
     color: white;
     margin-bottom: 10px;
+
 }
 
-#box-red {
+.red {
     background-color: red;
 }
 
-#box-orange {
+.orange {
     background-color: orange;
     margin-left: 30px;
   }
 
-#box-yellow {
+.yellow {
     background-color: yellow;
     margin-left: 60px;
 }
 
-#box-green{
+.green{
     background-color: green;
     margin-left: 90px;
 }
 
-#box-blue {
+.blue {
     background-color: blue;
     margin-left: 120px;
 }
 
-#box-pink {
+.pink {
     background-color: pink;
     margin-left: 150px;
 }
 
-
-</div
-<!--# for id
-. for class -->
