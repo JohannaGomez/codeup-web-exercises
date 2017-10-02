@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Martes Loco - IsaDaPizza</title>
+    <link rel="stylesheet" href="css/pizza_css.css">
+</head>
+<body>
+    <h1>Martes Loco - IsaDaPizza</h1>
+    <h2>Order pizza 2x1!!</h2>
+    <form method="POST" action="https://requestb.in/17qtsfa1">
+        <div id="size">
+            <h3>Select the size of the pizza:</h3>
+            <label for="large">
+                <input id="large" name="pi_size" type="radio" value="large">Large
+            </label>
+            <label for="medium">
+                <input id="medium" name="pi_size" type="radio" value="medium">Medium
+            </label>
+            <label for="personal">
+                <input id="personal" name="pi_size" type="radio" value="personal">Personal
+            </label>
+        </div>
+
+        <br>
+
+        <div id="qty">
+            <label for="qty">Quantity:</label>
+            <input id="qty" type="number" name="qty" placeholder="">
+        </div>
+
+        <br>
+        <!--
+        <div id="crustype">
+            <h3>Select the crust of your preference:</h3>
+            <label for="handTossed">
+                <input id="handTossed" name="crust" type="radio" value="handTossed">Hand Tossed
+            </label>
+            <label for="thin">
+                <input id="thin" name="crust" type="radio" value="thin">Thin
+            </label>
+            <label for="pan">
+                <input id="pan" name="crust" type="radio" value="pan">Pan
+            </label>
+        </div> -->
+        <div id="crustype">
+            <label for="crustype">Select the crust of your preference:
+                <select name="crustype" id="crustype">
+                    <option value="handTossed">Hand Tossed</option>
+                    <option value="thinCrust">Thin Crust</option>
+                    <option value="pan">Pan</option>
+                </select>
+            </label>
+        </div>
+
+        <div id="toppings">
+            <h3>Select the toppings:</h3>
+            <label for="xcheesse">
+                <input id="xcheesse" name="top" type="checkbox" value="xcheesse">Extra cheesse
+            </label>
+            <label for="meat">
+                <input id="meat" name="top" type="checkbox" value="meat">Meat
+            </label>
+            <label for="veggies">
+                <input id="veggies" name="top" type="checkbox" value="veggies">Veggies!!
+            </label>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="name">User:</label>
+            <input id="name" type="text" name="name" placeholder="Enter your username here">
+        </div>
+        <div id="pwd">
+            <label for="pwd">Your password:</label>
+            <input id="pwd" type="password" name="pwd" placeholder="Enter your password here">
+        </div>
+
+        <br>
+
+        <div id="comments">
+            <label for="comments">Leave any comments here:</label>
+            <br>
+            <textarea name="comments" id="comments" cols="30" rows="10" placeholder="comments"></textarea>
+        </div>
+        <button>Submit</button>
+</body>
+</html>
