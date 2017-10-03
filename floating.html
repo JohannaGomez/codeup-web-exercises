@@ -8,27 +8,41 @@
             width: 500px;
             border: 1px solid #000;
             padding: 10px;
+            position: relative;
         }
-        #box1 {
+        .box1 {
+            font-size: 2em;
             background-color: #77AF00; /* greenish */
             height: 100px;
             width: 100px;
             margin: 10px;
-            float: left;
+            /*float: left;*/
+            /*  -------position: relative;
+            top: 50px;
+            left: 50px; -------*/
+            position: fixed;
+            top: 100px;
+            right: 100px;
         }
-        #box2 {
+
+        .box2 {
             background-color: #1969B2; /* blueish */
             height: 150px;
             width: 150px;
             margin: 10px;
-            float: right;
+            float: left;
+            /*font-size: 2em;*/
+        }
+
+        p {
+            clear: left;
         }
     </style>
 </head>
 <body>
 <div id="container">
-    <div id="box1"></div>
-    <div id="box2"></div>
+    <div class="box1">Box1</div>
+    <div class="box2">Box2</div>
     <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
