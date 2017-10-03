@@ -1,13 +1,94 @@
+/* Reset styles */
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 95%;
+    font-family: sans-serif;
+    padding: 5px;
+}
+
 h1 {
-    float: left
+    text-align: center;
 }
 
-ul {
-    float: right;
+/* Blocks */
+.alert-info {
+    background-color: #add8e6;
+    border: 2px solid #d3d3d3;
+    padding: 1em;
+    text-align: center;
+}
+
+.alert-info > a {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-links {
+    padding-left: 0;
+}
+
+.nav-links li {
+    background-color: #d3d3d3;
+    padding: 1em;
+    text-align: center;
+    margin-bottom: .5em;
+    list-style: none;
+}
+
+.header-img img {
+    width: 100%;
+    padding: 5px;
+}
+
+.sub-section {
+    font-style: italic;
+}
+
+/* Style definitions that target screens 768px and up */
+@media screen and (min-width: 768px) {
+    body {
+        /*padding: 20px;*/
+        width: 100%;
+    }
+    .alert-info {
+        display: none;
+    }
+
+    h1 {
+        text-align: left;
+        float: left; /*pao's adding */
+    }
+
+    .nav-links {
+        text-align: right;
+        float: right; /*pao's adding */
+    }
+    .nav-links li {
+        display: inline-block;
+        float: right;
+        background-color: transparent;
+        padding: .2em;
+        line-height: 2em;
+    }
+
+    .main {
+        float: left;
+        width: 65%;
+    }
+    .sub-section {
+        float: right;
+        width: 33%;
+    }
 }
 
 
-img {
+
+
+
+
+/* img {
     float: left;
     clear: both;
 }
@@ -20,7 +101,6 @@ img {
 }
 
 li {
-    /*float: right;*/
     display: inline-block;
     list-style: none;
     padding-right: 20px;
@@ -30,8 +110,6 @@ li {
     width: 60%;
     word-wrap: break-word;
     float: left;
-    /*padding-right: 30px;*/
-    /*position: absolute;*/
 }
 
 .sub-section {
@@ -48,11 +126,11 @@ footer {
 }
 
 @media screen and (max-width:200px) {
-    /* any css style definitions here will aplly when the screen is > 768 and <922 ... */
+
     body {
 
         background-color: darkmagenta;
     }
 
-}
+} */
 
