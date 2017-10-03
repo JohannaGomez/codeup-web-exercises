@@ -1,0 +1,58 @@
+h1 {
+    float: left
+}
+
+ul {
+    float: right;
+}
+
+
+img {
+    float: left;
+    clear: both;
+}
+
+.header-img{
+    display: block;
+    margin: auto;
+    width: 890px;
+    height: 385px;
+}
+
+li {
+    /*float: right;*/
+    display: inline-block;
+    list-style: none;
+    padding-right: 20px;
+}
+
+#main {
+    width: 60%;
+    word-wrap: break-word;
+    float: left;
+    /*padding-right: 30px;*/
+    /*position: absolute;*/
+}
+
+.sub-section {
+    width: 30%;
+    word-wrap: break-word;
+    float: right;
+    font-style: italic;
+
+
+}
+
+footer {
+    float: left;
+}
+
+@media screen and (max-width:200px) {
+    /* any css style definitions here will aplly when the screen is > 768 and <922 ... */
+    body {
+
+        background-color: darkmagenta;
+    }
+
+}
+
