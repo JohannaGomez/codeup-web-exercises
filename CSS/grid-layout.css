@@ -1,0 +1,65 @@
+/*Remove the borders and background colors from your column classes. -----DONE !!
+Remove any css that sets widths from media-queries.css
+Include your grid-layout.css file in media-queries.html
+Add the HTML elements necessary to apply your grid system to the page. You should not change any existing CSS at this point.*/
+
+
+body {
+    margin: 0;
+}
+.container {
+    max-width: 1200px;
+    min-height: 100vh;  /* it's going to stretch the full height of the view */
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.row {
+    width: 100%;
+    background-color: lightgrey;
+    margin-bottom: 15px;
+}
+/*this is a seudo class*/
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.box {
+    border: 1px solid black;
+    box-sizing: border-box;
+    /*padding: 20px;*/
+}
+.one-half {
+    width: 50%;
+    float: left;  /*to have them horinzontally*/
+    background-color: #77AF00;
+}
+.one-third {
+    width: 33.33%;
+    float: left;
+    background-color: #ff6759;
+}
+.one-fourth {
+    width: 25%;
+    float: left;
+    background-color: blue;
+}
+.one-sixth {
+    width: 16.67%;
+    float: left;
+    background-color: crimson;
+}
+.one-eighth {
+    width: 12.5%;
+    float: left;
+    background-color: blueviolet;
+}
+@media screen and (max-width: 768px) {
+    body {
+        width: auto;
+    }
+    .one-half,.one-third,.one-fourth,.one-eighth {
+        width: 100%;
+    }
+}
