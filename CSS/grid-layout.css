@@ -1,6 +1,6 @@
 /*Remove the borders and background colors from your column classes. -----DONE !!
-Remove any css that sets widths from media-queries.css
-Include your grid-layout.css file in media-queries.html
+Remove any css that sets widths from media-queries.css   ------- done!!!!
+Include your grid-layout.css file in media-queries.html ------- done!!!
 Add the HTML elements necessary to apply your grid system to the page. You should not change any existing CSS at this point.*/
 
 
@@ -16,7 +16,7 @@ body {
 }
 .row {
     width: 100%;
-    background-color: lightgrey;
+    /*background-color: lightgrey;*/
     margin-bottom: 15px;
 }
 /*this is a seudo class*/
@@ -26,40 +26,53 @@ body {
     clear: both;
 }
 .box {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     box-sizing: border-box;
     /*padding: 20px;*/
 }
 .one-half {
     width: 50%;
     float: left;  /*to have them horinzontally*/
-    background-color: #77AF00;
+    /*background-color: #77AF00;*/
 }
 .one-third {
     width: 33.33%;
     float: left;
-    background-color: #ff6759;
+    /*background-color: #ff6759;*/
 }
 .one-fourth {
     width: 25%;
     float: left;
-    background-color: blue;
+    /*background-color: blue;*/
 }
 .one-sixth {
     width: 16.67%;
     float: left;
-    background-color: crimson;
+    /*background-color: crimson;*/
 }
 .one-eighth {
     width: 12.5%;
     float: left;
-    background-color: blueviolet;
+    /*background-color: blueviolet;*/
+}
+
+.two-third {
+    width: 66.66%;
+    float: left;
+    /*background-color: blueviolet;*/
+}
+
+.three-eighth {
+    width: 37.5%;
+    float: left;
+    /*background-color: blueviolet;*/
 }
 @media screen and (max-width: 768px) {
     body {
         width: auto;
     }
-    .one-half,.one-third,.one-fourth,.one-eighth {
+    .one-half,.one-third,.one-fourth,.one-eighth,.one-sixth,.two-third,.three-eighth {
         width: 100%;
     }
+
 }
