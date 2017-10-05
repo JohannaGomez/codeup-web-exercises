@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="CSS/custom.css">
 </head>
 <body>
+    <div class="container">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,14 +18,15 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Pizza<span class="sr-only">World</span></a></li>
                         <li><a href="#">Order On line</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="#">Menu</a></li>
+                        <!--<li class="dropdown">-->
+                            <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>-->
+                            <!--<ul class="dropdown-menu">-->
+                                <!--<li><a href="#">Action</a></li>-->
+                                <!--<li><a href="#">Another action</a></li>-->
+                                <!--<li><a href="#">Something else here</a></li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
                     </ul>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
@@ -38,140 +40,163 @@
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-
+    </div>
+    <div class="container">
         <div class="jumbotron">
-            <!--<div class="container">-->
                 <div class="row text-center" id="pizza-text">
                     <h1>Welcome to pizza world!</h1>
                 </div>
-            <!--</div>-->
         </div>
-
+    </div>
 <!--This component should be hidden for extra-small (xs) devices. See the documentation for responsive utility classes to hide the jumbotron properly.-->
 
         <div class="container">
+            <h2>Build your own pizza!</h2>
+            <ul class="nav nav-pills" role="tablist">
+                <li role="presentation" class=""><a href="#"><span class="badge">1</span> Size and Crust </a></li>
+                <li role="presentation" class=""><a href="#"><span class="badge">2</span>Cheese and Sauce</a></li>
+                <li role="presentation" class=""><a href="#"><span class="badge">3</span>Toppings</a></li>
+            </ul>
+            <!--  ***************** panel for size and crust *******************************************-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Choose size and Crust</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Hand Tossed</li>
+                        <li class="list-group-item">Garlic-seasoned crust with a rich, buttery taste </li>
+                        <li class="list-group-item">
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">Small (10")</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">Medium (12")</label>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-group">
+                        <li class="list-group-item">Crunchy thin crust</li>
+                        <li class="list-group-item">Thin enough for the optimun crispy to crunchy ratio.</li>
+                        <li class="list-group-item">
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">Medium (12") </label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">Large (14")</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer text-right">Next step <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></div>
+            </div>
+<!--************************************************panel for cheese and sauce-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Choose cheese and sauce</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Cheese?</li>
+                        <li class="list-group-item">Cheese</li>
+                        <li class="list-group-item">
+                            <select class="form-control" name="cheese_preference">
+                                <option value="light">Light</option>
+                                <option value="normal">Normal</option>
+                                <option value="extra">Extra</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul class="list-group">
+                        <li class="list-group-item">Sauce?</li>
+                        <li class="list-group-item">Sauce</li>
+                        <li class="list-group-item">
+                            <select  class="form-control" name="sauce_preference">
+                                <option value="tomato">Tomato sauce</option>
+                                <option value="marinara">Marinara sauce</option>
+                                <option value="bbq">BBQ Sauce</option>
+                                <option value="alfredo">Alfredo Sauce</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul class="list-group">
+                        <li class="list-group-item">How much?</li>
+                        <li class="list-group-item">
+                            <select  class="form-control" name="">
+                                <option value="light">Light</option>
+                                <option value="normal">Normal</option>
+                                <option value="extra">Extra</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer text-right">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Previus step</button>
+                        <button type="button" class="btn btn-default">Next<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+            </div>
+            <!--*******************    panel for toppings  *********************************************-->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Choose Toppings</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Choose meats</li>
+                        <li class="list-group-item">
+                            <div class="radio">
+                                <label><input type="radio" value="">Beef </label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="radio">
+                                <label><input type="radio" value="">Ham </label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="radio">
+                                <label><input type="radio" value="">Philly Steak</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="radio">
+                                <label><input type="radio" value="">Bacon</label>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list-group">
+                        <li class="list-group-item">Choose non-meats</li>
+                        <li class="list-group-item">
+                            <div class="radio">
+                                <label><input type="radio" value="">Green Peppers </label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="radio">
+                                <label><input type="radio" value="">Mushrooms</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="radio">
+                                <label><input type="radio" value="">Onions</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="radio">
+                                <label><input type="radio" value="">Jalapenos</label>
+                            </div>
+                        </li>
 
-
-                <h2>Build your own pizza!</h2>
-                <ul class="nav nav-pills" role="tablist">
-                    <li role="presentation" class=""><a href="#"><span class="badge">1</span> Size and Crust </a></li>
-                    <li role="presentation" class=""><a href="#"><span class="badge">2</span>Cheese and Sauce</a></li>
-                    <li role="presentation" class=""><a href="#"><span class="badge">3</span>Toppings</a></li>
-                </ul>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Choose size and Crust</h3>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">Hand Tossed</li>
-                            <li class="list-group-item">Garlic-seasoned crust with a rich, buttery taste </li>
-                            <li class="list-group-item">
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Small (10")</label>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Medium (12")</label>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Crunchy thin crust</li>
-                            <li class="list-group-item">Thin enough for the optimun crispy to crunchy ratio.</li>
-                            <li class="list-group-item">
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Medium (12") </label>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Large (14")</label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="panel-footer text-right">Next step <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></div>
+                    </ul>
                 </div>
-<!--panel for cheese and sauce-->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Choose cheese and sauce</h3>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">Cheese?</li>
-                            <li class="list-group-item">Cheese</li>
-                            <li class="list-group-item">
-                                <select name="cheese_preference">
-                                    <option value="light">Light</option>
-                                    <option value="normal">Normal</option>
-                                    <option value="extra">Extra</option>
-                                </select>
-                            </li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Sauce?</li>
-                            <li class="list-group-item">Sauce</li>
-                            <li class="list-group-item">
-                                <select name="sauce_preference">
-                                    <option value="tomato">Tomato sauce</option>
-                                    <option value="marinara">Marinara sauce</option>
-                                    <option value="bbq">BBQ Sauce</option>
-                                    <option value="alfredo">Alfredo Sauce</option>
-                                </select>
-                            </li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">How much?</li>
-                            <li class="list-group-item">
-                                <select name="">
-                                    <option value="light">Light</option>
-                                    <option value="normal">Normal</option>
-                                    <option value="extra">Extra</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="panel-footer text-right">
-                        <div class="btn-group" role="group" aria-label="...">
-                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Previus step</button>
-                            <button type="button" class="btn btn-default">Next<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
-                        </div>
-                    </div>
-                </div>
-                <!--*******************    panel for toppings-->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Choose Toppings</h3>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">Choose meats</li>
-                            <li class="list-group-item">
-                                <div class="radio">
-                                    <label><input type="radio" value="">Beef </label>
-                                    <label><input type="radio" value="">Ham </label>
-                                    <label><input type="radio" value="">Philly Steak </label>
-                                    <label><input type="radio" value="">Bacon</label>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">Choose non-meats</li>
-                            <li class="list-group-item">
-                                <div class="radio">
-                                    <label><input type="radio" value="">Green Peppers </label>
-                                    <label><input type="radio" value="">Mushrooms</label>
-                                    <label><input type="radio" value="">Onions</label>
-                                    <label><input type="radio" value="">Jalapeno peppers</label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="panel-footer text-right">Checkout <span class="glyphicon glyphicon-saved" aria-hidden="true"></span></div>
-                </div>
+                <div class="panel-footer text-right">Checkout <span class="glyphicon glyphicon-saved" aria-hidden="true"></span></div>
+            </div>
         </div>
 
 
