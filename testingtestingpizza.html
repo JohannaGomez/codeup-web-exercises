@@ -19,6 +19,14 @@
                     <li class="active"><a href="#">Pizza<span class="sr-only">World</span></a></li>
                     <li><a href="#">Order On line</a></li>
                     <li><a href="#">Menu</a></li>
+                    <!--<li class="dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                    <!--<li><a href="#">Action</a></li>-->
+                    <!--<li><a href="#">Another action</a></li>-->
+                    <!--<li><a href="#">Something else here</a></li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
@@ -27,16 +35,16 @@
                     <button type="submit" class="btn btn-default">Search Stores near you</button>
                 </form>
                 <div class="col-xs-push-2 navbar-right">
-                    <button type="submit" class="btn btn-default">Sign up here <span class="glyphicon glyphicon-user" aria-hidden="true"></span></button>
+                    <button type="submit" class="btn btn-default">Sign up here</button>
                 </div>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
 </div>
 <!--<div class="container">-->
-<div class="jumbotron hidden-xs">
+<div class="jumbotron">
     <!--<div class="row text-center" id="pizza-text">-->
-    <h1 id="pizza-text" class="text-center">Welcome to Issadapizza world!</h1>
+    <h1 id="pizza-text" class="text-center">Welcome to pizza world!</h1>
     <!--</div>-->
 </div>
 <!--</div>-->
@@ -44,6 +52,14 @@
 <form method="POST" action="https://requestb.in/1cwyti41">
     <div class="container">
         <h2>Build your own pizza!</h2>
+
+        <!--<div class="tab-content">-->
+        <!--<div role="tabpanel" class="tab-pane active" id="home">...</div>-->
+        <!--<div role="tabpanel" class="tab-pane" id="profile">...</div>-->
+        <!--<div role="tabpanel" class="tab-pane" id="messages">...</div>-->
+        <!--<div role="tabpanel" class="tab-pane" id="settings">...</div>-->
+        <!--</div>-->
+
         <ul class="nav nav-pills" role="tablist">
             <li role="presentation" class="active"><a href="#sizeandcrust" aria-controls="sizeandcrust" role="tab" data-toggle="tab"><span class="badge">1</span> Size and Crust </a></li>
             <li role="presentation" class=""><a href="#cheeseandsauce" aria-controls="cheeseandsauce" role="tab" data-toggle="tab"><span class="badge">2</span>Cheese and Sauce</a></li>
@@ -78,19 +94,19 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">Hand Tossed</div>
-                            <ul class="list-group">
-                                <li class="list-group-item">Garlic-seasoned crust with a rich, buttery taste </li>
-                                <li class="list-group-item list-group-item-info">
-                                    <div class="checkbox">
-                                        <label><input type="radio" name="q1" value="">Small (10")</label>
-                                    </div>
-                                </li>
-                                <li class="list-group-item list-group-item-info">
-                                    <div class="checkbox">
-                                        <label><input type="radio" name="q1" value="">Medium (12")</label>
-                                    </div>
-                                </li>
-                            </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Garlic-seasoned crust with a rich, buttery taste </li>
+                                    <li class="list-group-item list-group-item-info">
+                                        <div class="checkbox">
+                                            <label><input type="radio" name="q1" value="">Small (10")</label>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item list-group-item-info">
+                                        <div class="checkbox">
+                                            <label><input type="radio" name="q1" value="">Medium (12")</label>
+                                        </div>
+                                    </li>
+                                </ul>
                         </div>
 
                         <div class="panel panel-default">
@@ -111,7 +127,7 @@
                         </div>
                     </div>
                     <div class="panel-footer text-right">
-                        <button type="button" class="btn btn-info">Next step<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
+                        <button type="button" class="btn btn-default">Next step<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
                     </div>
                 </div>
             </div>
@@ -126,45 +142,45 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">Cheese??</div>
-                            <ul class="list-group">
-                                <li class="list-group-item list-group-item-info"><p>Cheese</p>
-                                    <select class="form-control" name="cheese_preference">
-                                        <option value="light">Light</option>
-                                        <option value="normal">Normal</option>
-                                        <option value="extra">Extra</option>
-                                    </select>
-                                </li>
-                            </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-info"><p>Cheese</p>
+                                        <select class="form-control" name="cheese_preference">
+                                            <option value="light">Light</option>
+                                            <option value="normal">Normal</option>
+                                            <option value="extra">Extra</option>
+                                        </select>
+                                    </li>
+                                </ul>
                         </div>
 
                         <div class="panel panel-default">
                             <div class="panel-heading">Sauce??</div>
-                            <ul class="list-group">
-                                <li class="list-group-item list-group-item-info"><p>Sauce</p>
-                                    <select  class="form-control" name="sauce_preference">
-                                        <option value="tomato">Tomato sauce</option>
-                                        <option value="marinara">Marinara sauce</option>
-                                        <option value="bbq">BBQ Sauce</option>
-                                        <option value="alfredo">Alfredo Sauce</option>
-                                    </select>
-                                </li>
-                            </ul>
-                            <ul class="list-group">
-                                <li class="list-group-item list-group-item-info"><p>How much?</p>
-                                    <select  class="form-control" name="">
-                                        <option value="light">Light</option>
-                                        <option value="normal">Normal</option>
-                                        <option value="extra">Extra</option>
-                                    </select>
-                                </li>
-                            </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-info"><p>Sauce</p>
+                                        <select  class="form-control" name="sauce_preference">
+                                            <option value="tomato">Tomato sauce</option>
+                                            <option value="marinara">Marinara sauce</option>
+                                            <option value="bbq">BBQ Sauce</option>
+                                            <option value="alfredo">Alfredo Sauce</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-info"><p>How much?</p>
+                                        <select  class="form-control" name="">
+                                            <option value="light">Light</option>
+                                            <option value="normal">Normal</option>
+                                            <option value="extra">Extra</option>
+                                        </select>
+                                    </li>
+                                </ul>
                             <!--</div>-->
                         </div>
                     </div>
                     <div class="panel-footer text-right">
                         <div class="btn-group" role="group" aria-label="...">
-                            <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Previus step</button>
-                            <button type="button" class="btn btn-info">Next<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Previus step</button>
+                            <button type="button" class="btn btn-default">Next<span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></button>
                         </div>
                     </div>
                 </div>
@@ -231,7 +247,7 @@
                     </div>
                     <!--<div class="panel-footer text-right">Checkout <span class="glyphicon glyphicon-saved" aria-hidden="true"></span></div>-->
                     <div class="panel-footer text-right">
-                        <button type="button" class="btn btn-info">Checkout <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
+                        <button type="button" class="btn btn-default">Checkout <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
                     </div>
                 </div>
             </div>

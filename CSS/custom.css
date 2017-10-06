@@ -2,7 +2,6 @@
     background-image: url("../images/pizza.png");
     background-repeat: no-repeat;
     background-size: cover;
-    /*text-align: center;*/
     padding-left:0;
     padding-right:0;
 }
@@ -11,4 +10,21 @@
     background-color: white;
     opacity: 0.8;
 }
+
+
+/*@media screen and (max-width: 768px) {*/
+    /*body {*/
+        /*width: auto;*/
+    /*}*/
+
+    /*.jumbotron {*/
+        /*background-image: none;*/
+    /*}*/
+    /*#pizza-text{*/
+        /*background-color: none;*/
+        /*opacity: 0;*/
+    /*}*/
+
+
+/*}*/
 
