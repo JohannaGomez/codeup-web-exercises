@@ -262,14 +262,28 @@
 // console.log(remainder(45, 3));
 //
 // Write the function `square(a)` that takes in a number and returns the number multiplied by itself.
-function square(a) {
-    return a *= a;
-}
-console.log(square(a));
+// function square(a) {
+//     return a *= a;
+// }
+// console.log(square(7));
 
-// # Super Duper Gold-Star Bonus
+// ############################################################# Super Duper Gold-Star Bonus
 //
 // Write a function called sumOfSquares(a, b) that uses only your add() function and your square function and not + or * operators
+    function add(a, b) {
+        return a + b;
+    }
+    // console.log(add(5, 5));
+
+    function square(a) {
+        return a * a;
+    }
+// console.log(square(7));
+
+    function sumOfSquares(a, b) {
+        return add(square(a), square(b));
+    }
+    console.log(sumOfSquares(4, 5));
 //
 // Write a function called doMath(operator, a, b) that takes 3 parameters. The first parameter is the name of the math function you want to apply. a and b are the two numbers to run that function on
 
