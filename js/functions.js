@@ -1,4 +1,7 @@
-// "use strict";
+(function () {
+
+
+"use strict";
 //
 // /**
 //  * TODO:
@@ -10,7 +13,7 @@
 //  */
 //
 // function sayHello(name) {
-//     return "hello " + name;
+//     return "hello " + name + "!!";
 // }
 // console.log(sayHello("codeup"));
 //
@@ -75,7 +78,9 @@
 // }
 // console.log(isTwo(random));
 //
-//
+
+
+
 //
 //
 //
@@ -114,7 +119,7 @@
 //
 //
 //
-//
+//=============================JUSTIN EXTRA FUNCTION DRILL ========================
 // // 1) Make a function called returnTwo() that returns the number 2 when called
 // // ---Test this function with console.log(returnTwo())
 // function returnTwo() {
@@ -131,7 +136,7 @@
 //
 // //
 // //     3) Make a function called addThree() which takes in a number input and returns the number plus 3. Remember to define a parameter.
-// // ---Test this function with console.log(addThree(5))
+// // ---Test this function with console.log(addThree(5))   ******* when passing in something to test is called ARGUMENT!!! *********
 // function addThree(num) {
 //     return num + 3;
 // }
@@ -151,8 +156,10 @@
 //     console.log("howdy");
 // }
 // sayHowdy();
+
+
 //
-//
+// =====================RYAN FUNCTION DRILL ========================
 // // Write a function called `identity(input)` that takes in an argument called input and returns that input.
 // function identity(input) {
 //     return input;
@@ -211,10 +218,7 @@
 // }
 //
 // console.log(isNumeric("hello"));
-
-
-
-
+//
 //
 //     Write a function called `count(input)` that takes in a string and returns the number of characters.
 // function count(input) {
@@ -252,19 +256,23 @@
 // console.log(divide(35, 5));
 //
 // Write a remainder(number, divisor) function that returns the remainder left over when dividing `number` by the `divisor`
-function remainder(number, divisor) {
-    return number % divisor;
-}
-console.log(remainder(45, 3));
+// function remainder(number, divisor) {
+//     return number % divisor;
+// }
+// console.log(remainder(45, 3));
 //
 // Write the function `square(a)` that takes in a number and returns the number multiplied by itself.
-//
+function square(a) {
+    return a *= a;
+}
+console.log(square(a));
+
 // # Super Duper Gold-Star Bonus
 //
 // Write a function called sumOfSquares(a, b) that uses only your add() function and your square function and not + or * operators
 //
 // Write a function called doMath(operator, a, b) that takes 3 parameters. The first parameter is the name of the math function you want to apply. a and b are the two numbers to run that function on
 
-
+})();
 
 
