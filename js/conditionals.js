@@ -210,31 +210,31 @@
  *
  * Test your function by passing it various values and checking for the expected
  * return value.
- */
-var random = Math.floor((Math.random() * 5) + 0);
-alert("your lucky number is: " + random);
-function calculateTotal(randomLuckyNumb, total) {
-    if (randomLuckyNumb === 0) {
-        return "no discount";
-    } else if (randomLuckyNumb === 1) {
-        var totalDisc = 0.10 * total;
-        return totalDisc;
-    } else if (randomLuckyNumb === 2) {
-        var totalDisc = 0.25 * total;
-        return totalDisc;
-    } else if (randomLuckyNumb === 3) {
-        var totalDisc = 0.35 * total;
-        return totalDisc;
-    } else if (randomLuckyNumb === 4) {
-        var totalDisc = 0.50 * total;
-        return totalDisc;
-    } else if (randomLuckyNumb === 5) {
-        return "your purchase is free!!!!";
-    }
-
-}
-
-console.log(calculateTotal(random, 100));
+//  */
+// var random = Math.floor((Math.random() * 5) + 0);
+// alert("your lucky number is: " + random);
+// function calculateTotal(randomLuckyNumb, total) {
+//     if (randomLuckyNumb === 0) {
+//         return "no discount";
+//     } else if (randomLuckyNumb === 1) {
+//         var totalDisc = 0.10 * total;
+//         return totalDisc;
+//     } else if (randomLuckyNumb === 2) {
+//         var totalDisc = 0.25 * total;
+//         return totalDisc;
+//     } else if (randomLuckyNumb === 3) {
+//         var totalDisc = 0.35 * total;
+//         return totalDisc;
+//     } else if (randomLuckyNumb === 4) {
+//         var totalDisc = 0.50 * total;
+//         return totalDisc;
+//     } else if (randomLuckyNumb === 5) {
+//         return "your purchase is free!!!!";
+//     }
+//
+// }
+//
+// console.log(calculateTotal(random, 100));
 
 /**
  * TODO:
@@ -244,5 +244,73 @@ console.log(calculateTotal(random, 100));
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+var totalBill = prompt('type your total bill is??');
+var totalDisc = 0;
+function calculateTotal(randomLuckyNumb, total) {
+    var totalDisc;
+    if (randomLuckyNumb === 0) {
+        totalDisc = 0;
+    } else if (randomLuckyNumb === 1) {
+        totalDisc = 0.10 * total;
+    } else if (randomLuckyNumb === 2) {
+        totalDisc = 0.25 * total;
+    } else if (randomLuckyNumb === 3) {
+        totalDisc = 0.35 * total;
+    } else if (randomLuckyNumb === 4) {
+        totalDisc = 0.50 * total;
+    } else if (randomLuckyNumb === 5) {
+        totalDisc = total;
+    }
+    return totalDisc;
+}
+totalDisc = calculateTotal(luckyNumber, totalBill);
+alert("your lucky number is:" + luckyNumber);
+alert("your price before discount is: " + totalBill);
+var finalTotal = totalBill - totalDisc;
+alert("your price after discount is:" + finalTotal );
+
+
+
+// ================================= 10/16/17 CONDITIONALS BONUSES =====================================================
+//
+//     Bonus 1
+//
+//     Create a function that prompts a user for their favorite day of the week and alerts a unique message based on the day.
+//     - Catch any invalid inputs.
+//     - Write the logic using if/else ifs and then refactor using a switch case
+//
+//         Bonus 2
+//
+//     Create a function that prompts the user for an input and then alerts if the input is a number or not a number.
+//     - use an if/else
+//     - refactor to use a ternary operator
+//
+//     Bonus 3
+//
+//     Create a function that prompts a user for a season (Spring, Summer, Fall (or Autumn), Winter). The function then alerts the months available in that season and then asks the user to pick a given month. After selecting the month, alert a unique message for the month.
+//     - account for any invalid user input
+//     - case of input should not matter
+//     // - accept both abbreviations and full names of the months
+//
+// ***********************************  10/16/17               GOLD STAR BONUS   ***************************************
+//
+//     Create a distance unit conversion application.
+//         Prompt the user for a unit of measurement.
+//         Prompt the user for a value.
+//
+//         Prompt the user for a second unit of measurement to convert to.
+//
+//         Define multiple functions to convert: inchesToFeet, feetToMiles, milesToLightYears
+//     then the opposite versions: lightYearsToMiles, milesToFeet, feetToInches
+//
+//     Use these conversion functions to make the correct unit conversion
+//
+//     Potentially, you will need a large switch case to account for the possible unit conversion combinations,
+//         i.e. what conversion functions will need to be called in and in what order.
+//
+//         DOUBLE GOLD STAR BONUS
+//
+//         Allow unit conversion to metric system units
+
 }) ()
