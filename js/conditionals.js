@@ -244,31 +244,31 @@
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-var luckyNumber = Math.floor(Math.random() * 6);
-var totalBill = prompt('type your total bill is??');
-var totalDisc = 0;
-function calculateTotal(randomLuckyNumb, total) {
-    var localTotalDisc;
-    if (randomLuckyNumb === 0) {
-        localTotalDisc = 0;
-    } else if (randomLuckyNumb === 1) {
-        localTotalDisc = 0.10 * total;
-    } else if (randomLuckyNumb === 2) {
-        localTotalDisc = 0.25 * total;
-    } else if (randomLuckyNumb === 3) {
-        localTotalDisc = 0.35 * total;
-    } else if (randomLuckyNumb === 4) {
-        localTotalDisc = 0.50 * total;
-    } else if (randomLuckyNumb === 5) {
-        localTotalDisc = total;
-    }
-    return localTotalDisc;
-}
-totalDisc = calculateTotal(luckyNumber, totalBill);
-alert("your lucky number is:" + luckyNumber);
-alert("your price before discount is: " + totalBill);
-var finalTotal = totalBill - totalDisc;
-alert("your price after discount is:" + finalTotal );
+// var luckyNumber = Math.floor(Math.random() * 6);
+// var totalBill = prompt('type your total bill is??');
+// var totalDisc = 0;
+// function calculateTotal(randomLuckyNumb, total) {
+//     var localTotalDisc;
+//     if (randomLuckyNumb === 0) {
+//         localTotalDisc = 0;
+//     } else if (randomLuckyNumb === 1) {
+//         localTotalDisc = 0.10 * total;
+//     } else if (randomLuckyNumb === 2) {
+//         localTotalDisc = 0.25 * total;
+//     } else if (randomLuckyNumb === 3) {
+//         localTotalDisc = 0.35 * total;
+//     } else if (randomLuckyNumb === 4) {
+//         localTotalDisc = 0.50 * total;
+//     } else if (randomLuckyNumb === 5) {
+//         localTotalDisc = total;
+//     }
+//     return localTotalDisc;
+// }
+// totalDisc = calculateTotal(luckyNumber, totalBill);
+// alert("your lucky number is:" + luckyNumber);
+// alert("your price before discount is: " + totalBill);
+// var finalTotal = totalBill - totalDisc;
+// alert("your price after discount is:" + finalTotal );
 
 
 
@@ -282,59 +282,80 @@ alert("your price after discount is:" + finalTotal );
 
     // var favoriteDayOfTheWeek = prompt("what's your favorite day of the week??: ");
     // function analyzeDay(dayString) {
+    //     var message = "";
+    //     dayString = dayString.toLowerCase();
     //     if (isNaN(dayString)) {
     //         if (dayString === "monday") {
-    //             return "Monday is not my favorite day, I feel so tired";
+    //             message = "Monday is not my favorite day, I feel so tired";
     //         } else if (dayString === "tuesday") {
-    //             return "On Tuesdays we leave early";
+    //             message = "On Tuesdays we leave early";
     //         } else if (dayString === "wednesday") {
-    //             return "Wednesdays is my favorite day";
+    //             message = "Wednesdays is my favorite day";
     //         } else if (dayString === "thursday") {
-    //             return "Thursday is a body back day";
+    //             message = "Thursday is a body back day";
     //         } else if (dayString === "friday") {
-    //             return "TGIF";
+    //             message = "TGIF";
     //         } else if (dayString === "saturday") {
-    //             return "Saturday is grocery day";
-    //         } else {
-    //             return "Sundays are for church and family";
+    //             message = "Saturday is grocery day";
+    //         } else if (dayString === "sunday") {
+    //             message = "Sundays are for church and family";
     //         }
     //     } else {
-    //         alert("that's not a valid input!");
+    //         message = "that's not a valid input!";
     //     }
+    //     return message;
     // }
     // alert(analyzeDay(favoriteDayOfTheWeek));
 
-    // var favoriteDayOfTheWeek = prompt("what's your favorite day of the week??: ");
-    // function analyzeDay(dayString) {
-    //     if (isNaN(dayString)) {
-    //         switch (dayString) {
-    //             case "monday":
-    //                 return "Monday is not my favorite day, I feel so tired";
-    //                 break;
-    //             case "tuesday":
-    //                 return "On Tuesdays we leave early";
-    //                 break;
-    //             case "wednesday":
-    //                 return "Wednesdays is my favorite day";
-    //                 break;
-    //             case "thursday":
-    //                 return "Thursday is a body back day";
-    //                 break;
-    //             case "friday":
-    //                 return "TGIF";
-    //                 break;
-    //
-    //         } else if (dayString === "saturday") {
-    //             return "Saturday is grocery day";
-    //         } else {
-    //             return "Sundays are for church and family";
-    //         }
-    //     } else {
-    //         alert("that's not a valid input!");
-    //     }
-    // }
-    // alert(analyzeDay(favoriteDayOfTheWeek));
+    var favoriteDayOfTheWeek = prompt("what's your favorite day of the week??: ");
+    function analyzeDay(dayString) {
+        var message = "";
+        dayString = dayString.toLowerCase();
+        if (isNaN(dayString)) {
+            switch (dayString) {
+                case "monday":
+                    message = "Monday is not my favorite day, I feel so tired";
+                    break;
+                case "":
+                    message = "Monday is not my favorite day, I feel so tired";
+                    break;
+                case "":
+                    message = "Monday is not my favorite day, I feel so tired";
+                    break;
+                case "":
+                    message = "Monday is not my favorite day, I feel so tired";
+                    break;
+                case "":
+                    message = "Monday is not my favorite day, I feel so tired";
+                    break;
+                case "":
+                    message = "Monday is not my favorite day, I feel so tired";
+                    break;
+                case "":
+                    message = "Monday is not my favorite day, I feel so tired";
+                    break;
 
+            }
+            if (dayString === "monday") {
+            } else if (dayString === "tuesday") {
+                message = "On Tuesdays we leave early";
+            } else if (dayString === "wednesday") {
+                message = "Wednesdays is my favorite day";
+            } else if (dayString === "thursday") {
+                message = "Thursday is a body back day";
+            } else if (dayString === "friday") {
+                message = "TGIF";
+            } else if (dayString === "saturday") {
+                message = "Saturday is grocery day";
+            } else if (dayString === "sunday") {
+                message = "Sundays are for church and family";
+            }
+        } else {
+            message = "that's not a valid input!";
+        }
+        return message;
+    }
+    alert(analyzeDay(favoriteDayOfTheWeek));
 
 
 //         Bonus 2
