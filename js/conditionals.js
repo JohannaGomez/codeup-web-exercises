@@ -17,30 +17,74 @@
      *
      * Can you refactor your code to use functions?
     //  */
-    var wantAnumber = confirm("would you like to enter a number??");
-    if (wantAnumber) {
-        var yourNumber = prompt("type your number here!!!!");
-        if (isNaN(yourNumber)) {
-            alert("this is not a number!!!!");
-        } else {
-            if (yourNumber%2 == 0) {
-                alert("your number is even!!");
-            } else {
-                alert("your number is odd!!");
-            }
-            var plusOneHundred = yourNumber +++ 100;
-            alert("your number plus 100 is: " + plusOneHundred);
-            if (yourNumber < 0) {
-                alert("your number is negative");
-            } else if (yourNumber > 0) {
-                alert("your number is positive");
-            } else {
-                alert("your number is cero!");
-            }
-        }
-    } else {
-        alert("you clicked on cancel!!");
-    }
+    // var wantAnumber = confirm("would you like to enter a number??");
+    // if (wantAnumber) {
+    //     var yourNumber = prompt("type your number here!!!!");
+    //     if (isNaN(yourNumber)) {
+    //         alert("this is not a number!!!!");
+    //     } else {
+    //         if (yourNumber%2 == 0) {
+    //             alert("your number is even!!");
+    //         } else {
+    //             alert("your number is odd!!");
+    //         }
+    //         var plusOneHundred = yourNumber +++ 100;
+    //         alert("your number plus 100 is: " + plusOneHundred);
+    //         if (yourNumber < 0) {
+    //             alert("your number is negative");
+    //         } else if (yourNumber > 0) {
+    //             alert("your number is positive");
+    //         } else {
+    //             alert("your number is cero!");
+    //         }
+    //     }
+    // } else {
+    //     alert("you clicked on cancel!!");
+    // }
+// ********************************************* pao's note:  please check this and refactor properly *********************'
+//     if (wantAnumber) {
+//         var yourNumber = prompt("type your number here!!!!");
+//         if (isNaN(yourNumber)) {
+//             alert("this is not a number!!!!");
+//         } else {
+//             if (yourNumber%2 == 0) {
+//                 alert("your number is even!!");
+//             } else {
+//                 alert("your number is odd!!");
+//             }
+//             var plusOneHundred = yourNumber +++ 100;
+//             alert("your number plus 100 is: " + plusOneHundred);
+//             if (yourNumber < 0) {
+//                 alert("your number is negative");
+//             } else if (yourNumber > 0) {
+//                 alert("your number is positive");
+//             } else {
+//                 alert("your number is cero!");
+//             }
+//         }
+//         } else {
+//             alert("you clicked on cancel!!");
+//         }
+//
+//     function isNumeric(x) {
+//         return !isNaN(x);
+//     }
+//
+//     function isNegative(x) {
+//         return x < 0;
+//     }
+//
+//     function isPositive(x) {
+//         return x > 0;
+//     }
+//
+//     function isEven(x) {
+//         return parseFloat(x) % 2 === 0;
+//     }
+//     function isOdd() {
+//         return !isEven(x);
+//     }
+
 
 /* ########################################################################## */
 
@@ -63,30 +107,30 @@
  */
 
 
-function analyzeColor(strColorName) {
-    if (strColorName === "red") {
-        //console.log("Blood is red");
-        return "blood is red";
-    } else if (strColorName === "orange") {
-        // console.log("Mandarines are orange");
-        return "Mandarines are orange";
-    } else if (strColorName === "yellow") {
-        // console.log("Bananas are yellow");
-        return "Bananas are yellow";
-    } else if (strColorName === "green") {
-        // console.log("Broccoli is green");
-        return "Broccoli is green";
-    } else if (strColorName === "blue") {
-        // console.log("Sky is blue");
-        return "Sky is blue";
-    } else if (strColorName === "indigo") {
-        // console.log("I don't know what indigo color is!!");
-        return "I don't know what indigo color is!!";
-    } else {
-        // console.log("Barney is violet");
-        return "Barney is violet";
-    }
-}
+// function analyzeColor(strColorName) {
+//     if (strColorName === "red") {
+//         //console.log("Blood is red");
+//         return "blood is red";
+//     } else if (strColorName === "orange") {
+//         // console.log("Mandarines are orange");
+//         return "Mandarines are orange";
+//     } else if (strColorName === "yellow") {
+//         // console.log("Bananas are yellow");
+//         return "Bananas are yellow";
+//     } else if (strColorName === "green") {
+//         // console.log("Broccoli is green");
+//         return "Broccoli is green";
+//     } else if (strColorName === "blue") {
+//         // console.log("Sky is blue");
+//         return "Sky is blue";
+//     } else if (strColorName === "indigo") {
+//         // console.log("I don't know what indigo color is!!");
+//         return "I don't know what indigo color is!!";
+//     } else {
+//         // console.log("Barney is violet");
+//         return "Barney is violet";
+//     }
+// }
 // console.log(analyzeColor("orange"));
 
 
@@ -95,8 +139,8 @@ function analyzeColor(strColorName) {
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color everytime the page loads)
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
+// var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+// var randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
@@ -105,35 +149,35 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
 
 
-console.log(analyzeColor(randomColor));
+// console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
 // var strColorName = randomColor
-switch (randomColor) {
-    case "red":
-        console.log("Blood is red - switch");
-        break;
-    case "orange":
-        console.log("Mandarines are orange - switch");
-        break;
-    case "yellow":
-        console.log("Bananas are yellow - switch");
-        break;
-    case "green":
-        console.log("Broccoli is green - switch");
-        break;
-    case "blue":
-        console.log("Sky is blue - switch");
-        break;
-    case "indigo":
-        console.log("I don't know what indigo color is!! - switch");
-        break;
-    default:
-        console.log("Barney is violet - switch");
-}
+// switch (randomColor) {
+//     case "red":
+//         console.log("Blood is red - switch");
+//         break;
+//     case "orange":
+//         console.log("Mandarines are orange - switch");
+//         break;
+//     case "yellow":
+//         console.log("Bananas are yellow - switch");
+//         break;
+//     case "green":
+//         console.log("Broccoli is green - switch");
+//         break;
+//     case "blue":
+//         console.log("Sky is blue - switch");
+//         break;
+//     case "indigo":
+//         console.log("I don't know what indigo color is!! - switch");
+//         break;
+//     default:
+//         console.log("Barney is violet - switch");
+// }
 
 /**
  * TODO:
@@ -141,8 +185,8 @@ switch (randomColor) {
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-var inputFromUser = prompt("pick a color in between red, orange, yellow, green, blue, indigo, violet");
-alert("the color you pick is: "+ analyzeColor(inputFromUser));
+// var inputFromUser = prompt("pick a color in between red, orange, yellow, green, blue, indigo, violet");
+// alert("the color you pick is: "+ analyzeColor(inputFromUser));
 
 
 /* ########################################################################## */
@@ -150,22 +194,15 @@ alert("the color you pick is: "+ analyzeColor(inputFromUser));
 /**
  * TODO:
  * Suppose there's a promotion in Walmart, each customer is given a randomly
- * generated "lucky number" between 0 and 5. If your lucky number is 0 you have
+ * generated "lucky number" between 0 and 5.(done)
+ * If your lucky number is 0 you have
  * no discount, if your lucky number is 1 you'll get a 10% discount, if it's 2,
  * the discount is 25%, if it's 3, 35%, if it's 4, 50%, and if it's 5 you'll get
  * all for free!.
  *
  * Write a function named `caculateTotal` that accepts a lucky number and total
  * amount, and returns the discounted price.
- // var bill = prompt('type your total bill');
- // var tipPercentage = prompt("type the percentage you would like to tip");
- // function calculateTip(total, percentage) {
-//         var tipTotal = total * percentage;
-//         return tipTotal;
-// }
- // alert("your total tip is: " + calculateTip(bill, tipPercentage));
- //
- // // console.log(calculateTip(bill, tipPercentage));
+
  * Example:
  * calculateTotal(0, 100) // returns 100
  * calculateTotal(4, 100) // returns 50
@@ -175,12 +212,30 @@ alert("the color you pick is: "+ analyzeColor(inputFromUser));
  * return value.
  */
 var random = Math.floor((Math.random() * 5) + 0);
-prompt("your lucky number is: " + random);
+alert("your lucky number is: " + random);
 function calculateTotal(randomLuckyNumb, total) {
     if (randomLuckyNumb === 0) {
-        var total
+        return "no discount";
+    } else if (randomLuckyNumb === 1) {
+        var totalDisc = 0.10 * total;
+        return totalDisc;
+    } else if (randomLuckyNumb === 2) {
+        var totalDisc = 0.25 * total;
+        return totalDisc;
+    } else if (randomLuckyNumb === 3) {
+        var totalDisc = 0.35 * total;
+        return totalDisc;
+    } else if (randomLuckyNumb === 4) {
+        var totalDisc = 0.50 * total;
+        return totalDisc;
+    } else if (randomLuckyNumb === 5) {
+        return "your purchase is free!!!!";
     }
+
 }
+
+console.log(calculateTotal(random, 100));
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
