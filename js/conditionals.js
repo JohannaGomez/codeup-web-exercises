@@ -306,56 +306,56 @@
     //     return message;
     // }
     // alert(analyzeDay(favoriteDayOfTheWeek));
-
-    var favoriteDayOfTheWeek = prompt("what's your favorite day of the week??: ");
-    function analyzeDay(dayString) {
-        var message = "";
-        dayString = dayString.toLowerCase();
-        if (isNaN(dayString)) {
-            switch (dayString) {
-                case "monday":
-                    message = "Monday is not my favorite day, I feel so tired";
-                    break;
-                case "":
-                    message = "Monday is not my favorite day, I feel so tired";
-                    break;
-                case "":
-                    message = "Monday is not my favorite day, I feel so tired";
-                    break;
-                case "":
-                    message = "Monday is not my favorite day, I feel so tired";
-                    break;
-                case "":
-                    message = "Monday is not my favorite day, I feel so tired";
-                    break;
-                case "":
-                    message = "Monday is not my favorite day, I feel so tired";
-                    break;
-                case "":
-                    message = "Monday is not my favorite day, I feel so tired";
-                    break;
-
-            }
-            if (dayString === "monday") {
-            } else if (dayString === "tuesday") {
-                message = "On Tuesdays we leave early";
-            } else if (dayString === "wednesday") {
-                message = "Wednesdays is my favorite day";
-            } else if (dayString === "thursday") {
-                message = "Thursday is a body back day";
-            } else if (dayString === "friday") {
-                message = "TGIF";
-            } else if (dayString === "saturday") {
-                message = "Saturday is grocery day";
-            } else if (dayString === "sunday") {
-                message = "Sundays are for church and family";
-            }
-        } else {
-            message = "that's not a valid input!";
-        }
-        return message;
-    }
-    alert(analyzeDay(favoriteDayOfTheWeek));
+    //
+    // var favoriteDayOfTheWeek = prompt("what's your favorite day of the week??: ");
+    // function analyzeDay(dayString) {
+    //     var message = "";
+    //     dayString = dayString.toLowerCase();
+    //     if (isNaN(dayString)) {
+    //         switch (dayString) {
+    //             case "monday":
+    //                 message = "Monday is not my favorite day, I feel so tired";
+    //                 break;
+    //             case "":
+    //                 message = "Monday is not my favorite day, I feel so tired";
+    //                 break;
+    //             case "":
+    //                 message = "Monday is not my favorite day, I feel so tired";
+    //                 break;
+    //             case "":
+    //                 message = "Monday is not my favorite day, I feel so tired";
+    //                 break;
+    //             case "":
+    //                 message = "Monday is not my favorite day, I feel so tired";
+    //                 break;
+    //             case "":
+    //                 message = "Monday is not my favorite day, I feel so tired";
+    //                 break;
+    //             case "":
+    //                 message = "Monday is not my favorite day, I feel so tired";
+    //                 break;
+    //
+    //         }
+    //         if (dayString === "monday") {
+    //         } else if (dayString === "tuesday") {
+    //             message = "On Tuesdays we leave early";
+    //         } else if (dayString === "wednesday") {
+    //             message = "Wednesdays is my favorite day";
+    //         } else if (dayString === "thursday") {
+    //             message = "Thursday is a body back day";
+    //         } else if (dayString === "friday") {
+    //             message = "TGIF";
+    //         } else if (dayString === "saturday") {
+    //             message = "Saturday is grocery day";
+    //         } else if (dayString === "sunday") {
+    //             message = "Sundays are for church and family";
+    //         }
+    //     } else {
+    //         message = "that's not a valid input!";
+    //     }
+    //     return message;
+    // }
+    // alert(analyzeDay(favoriteDayOfTheWeek));
 
 
 //         Bonus 2
@@ -390,5 +390,8 @@
 //         DOUBLE GOLD STAR BONUS
 //
 //         Allow unit conversion to metric system units
+
+
+
 
 }) ()
