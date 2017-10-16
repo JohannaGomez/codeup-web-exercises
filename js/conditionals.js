@@ -108,28 +108,24 @@
 
 
 // function analyzeColor(strColorName) {
+//     var message = "";
+//     strColorName = strColorName.toLowerCase();
 //     if (strColorName === "red") {
-//         //console.log("Blood is red");
-//         return "blood is red";
+//         message = "blood is red";
 //     } else if (strColorName === "orange") {
-//         // console.log("Mandarines are orange");
-//         return "Mandarines are orange";
+//         message = "Mandarines are orange";
 //     } else if (strColorName === "yellow") {
-//         // console.log("Bananas are yellow");
-//         return "Bananas are yellow";
+//         message = "Bananas are yellow";
 //     } else if (strColorName === "green") {
-//         // console.log("Broccoli is green");
-//         return "Broccoli is green";
+//         message = "Broccoli is green";
 //     } else if (strColorName === "blue") {
-//         // console.log("Sky is blue");
-//         return "Sky is blue";
+//         message = "Sky is blue";
 //     } else if (strColorName === "indigo") {
-//         // console.log("I don't know what indigo color is!!");
-//         return "I don't know what indigo color is!!";
+//         message = "I don't know what indigo color is!!";
 //     } else {
-//         // console.log("Barney is violet");
-//         return "Barney is violet";
+//         message = "Barney is violet";
 //     }
+//     return message;
 // }
 // console.log(analyzeColor("orange"));
 
@@ -155,29 +151,36 @@
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
-// var strColorName = randomColor
-// switch (randomColor) {
-//     case "red":
-//         console.log("Blood is red - switch");
-//         break;
-//     case "orange":
-//         console.log("Mandarines are orange - switch");
-//         break;
-//     case "yellow":
-//         console.log("Bananas are yellow - switch");
-//         break;
-//     case "green":
-//         console.log("Broccoli is green - switch");
-//         break;
-//     case "blue":
-//         console.log("Sky is blue - switch");
-//         break;
-//     case "indigo":
-//         console.log("I don't know what indigo color is!! - switch");
-//         break;
-//     default:
-//         console.log("Barney is violet - switch");
+
+// function analyzeColor(strColorName) {
+//     var message = "";
+//     strColorName = strColorName.toLowerCase();
+//     switch (strColorName) {
+//         case "red":
+//             message = "blood is red";
+//             break;
+//         case "orange":
+//             message = "Mandarines are orange";
+//             break;
+//         case "yellow":
+//             message = "Bananas are yellow";
+//             break;
+//         case "green":
+//             message = "Broccoli is green";
+//             break;
+//         case "blue":
+//             message = "Sky is blue";
+//             break;
+//         case "indigo":
+//             message = "I don't know what indigo color is!!";
+//             break;
+//         default:
+//             message = "Barney is violet - switch";
+//     }
+//     return message;
 // }
+//
+// console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -210,31 +213,28 @@
  *
  * Test your function by passing it various values and checking for the expected
  * return value.
-//  */
+// //  */
 // var random = Math.floor((Math.random() * 5) + 0);
 // alert("your lucky number is: " + random);
 // function calculateTotal(randomLuckyNumb, total) {
+//     var totalDisc;
 //     if (randomLuckyNumb === 0) {
-//         return "no discount";
+//         totalDisc = 0;
 //     } else if (randomLuckyNumb === 1) {
-//         var totalDisc = 0.10 * total;
-//         return totalDisc;
+//         totalDisc = 0.10 * total;
 //     } else if (randomLuckyNumb === 2) {
-//         var totalDisc = 0.25 * total;
-//         return totalDisc;
+//         totalDisc = 0.25 * total;
 //     } else if (randomLuckyNumb === 3) {
-//         var totalDisc = 0.35 * total;
-//         return totalDisc;
+//         totalDisc = 0.35 * total;
 //     } else if (randomLuckyNumb === 4) {
-//         var totalDisc = 0.50 * total;
-//         return totalDisc;
+//         totalDisc = 0.50 * total;
 //     } else if (randomLuckyNumb === 5) {
-//         return "your purchase is free!!!!";
+//         totalDisc = total;
 //     }
-//
+//     return totalDisc;
 // }
-//
-// console.log(calculateTotal(random, 100));
+// console.log("your lucky number was: " + random);
+// console.log("your total discount is: " + calculateTotal(random, 100));
 
 /**
  * TODO:
@@ -248,21 +248,21 @@ var luckyNumber = Math.floor(Math.random() * 6);
 var totalBill = prompt('type your total bill is??');
 var totalDisc = 0;
 function calculateTotal(randomLuckyNumb, total) {
-    var totalDisc;
+    var localTotalDisc;
     if (randomLuckyNumb === 0) {
-        totalDisc = 0;
+        localTotalDisc = 0;
     } else if (randomLuckyNumb === 1) {
-        totalDisc = 0.10 * total;
+        localTotalDisc = 0.10 * total;
     } else if (randomLuckyNumb === 2) {
-        totalDisc = 0.25 * total;
+        localTotalDisc = 0.25 * total;
     } else if (randomLuckyNumb === 3) {
-        totalDisc = 0.35 * total;
+        localTotalDisc = 0.35 * total;
     } else if (randomLuckyNumb === 4) {
-        totalDisc = 0.50 * total;
+        localTotalDisc = 0.50 * total;
     } else if (randomLuckyNumb === 5) {
-        totalDisc = total;
+        localTotalDisc = total;
     }
-    return totalDisc;
+    return localTotalDisc;
 }
 totalDisc = calculateTotal(luckyNumber, totalBill);
 alert("your lucky number is:" + luckyNumber);
@@ -279,7 +279,64 @@ alert("your price after discount is:" + finalTotal );
 //     Create a function that prompts a user for their favorite day of the week and alerts a unique message based on the day.
 //     - Catch any invalid inputs.
 //     - Write the logic using if/else ifs and then refactor using a switch case
-//
+
+    // var favoriteDayOfTheWeek = prompt("what's your favorite day of the week??: ");
+    // function analyzeDay(dayString) {
+    //     if (isNaN(dayString)) {
+    //         if (dayString === "monday") {
+    //             return "Monday is not my favorite day, I feel so tired";
+    //         } else if (dayString === "tuesday") {
+    //             return "On Tuesdays we leave early";
+    //         } else if (dayString === "wednesday") {
+    //             return "Wednesdays is my favorite day";
+    //         } else if (dayString === "thursday") {
+    //             return "Thursday is a body back day";
+    //         } else if (dayString === "friday") {
+    //             return "TGIF";
+    //         } else if (dayString === "saturday") {
+    //             return "Saturday is grocery day";
+    //         } else {
+    //             return "Sundays are for church and family";
+    //         }
+    //     } else {
+    //         alert("that's not a valid input!");
+    //     }
+    // }
+    // alert(analyzeDay(favoriteDayOfTheWeek));
+
+    // var favoriteDayOfTheWeek = prompt("what's your favorite day of the week??: ");
+    // function analyzeDay(dayString) {
+    //     if (isNaN(dayString)) {
+    //         switch (dayString) {
+    //             case "monday":
+    //                 return "Monday is not my favorite day, I feel so tired";
+    //                 break;
+    //             case "tuesday":
+    //                 return "On Tuesdays we leave early";
+    //                 break;
+    //             case "wednesday":
+    //                 return "Wednesdays is my favorite day";
+    //                 break;
+    //             case "thursday":
+    //                 return "Thursday is a body back day";
+    //                 break;
+    //             case "friday":
+    //                 return "TGIF";
+    //                 break;
+    //
+    //         } else if (dayString === "saturday") {
+    //             return "Saturday is grocery day";
+    //         } else {
+    //             return "Sundays are for church and family";
+    //         }
+    //     } else {
+    //         alert("that's not a valid input!");
+    //     }
+    // }
+    // alert(analyzeDay(favoriteDayOfTheWeek));
+
+
+
 //         Bonus 2
 //
 //     Create a function that prompts the user for an input and then alerts if the input is a number or not a number.
