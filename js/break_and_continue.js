@@ -1,3 +1,7 @@
+"use strict";
+(function() {
+
+
 // *****************************Break and Continue continue
 //
 
@@ -78,3 +82,4 @@ for (var i = 1; i < 50; i++) {
 // Here is an odd number: 45
 // Here is an odd number: 47
 // Here is an odd number: 49
+})();

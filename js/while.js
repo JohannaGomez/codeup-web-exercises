@@ -1,3 +1,6 @@
+"use strict";
+(function() {
+
 // function isNumeric(number) {
 //     return !isNaN(number);
 // }
@@ -89,7 +92,7 @@ var allCones = Math.floor(Math.random() * 50) + 50;
 Math.floor(Math.random() * 5) + 1;
 
 do {
-    
+
     console.log("you still have " + allCones + "to sell!!!");
 } while (allCones <=100);
 // function isNumeric(number) {
@@ -105,4 +108,4 @@ do {
 // console.log(parseInt(usersNumber) + 10);
 // console.log("done!!");
 
-
+})();

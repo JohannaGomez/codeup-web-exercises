@@ -1,3 +1,5 @@
+"use strict";
+(function() {
 // 1./ Create a file named for_loops.js inside the js directory and link it to your loops.html file.
 
 // 2./ Create a function named showMultiplicationTable that accepts a number and console.logs
@@ -71,3 +73,4 @@
 // for (x = 100; x >= 5; x -=5) {
 //     console.log(x);
 // }
+})();
