@@ -96,10 +96,10 @@
 // for (x = 100; x >= 5; x -=5) {
 //     console.log(x);
 // }
-
+//     var message = (condition) ? "operation if it is true" : "operation for the else";
 
     function diamond(x){
-        var y, w, shape = '';
+        var y, w, shape = "";
 
         for(y = 0; y < x * 2 - 1; y++) {
             w = y < x ? y : x * 2 - y - 2;

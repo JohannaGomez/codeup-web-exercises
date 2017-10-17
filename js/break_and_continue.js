@@ -120,16 +120,7 @@
 //
 //     If your code needs to make a decision, you're gonna need a conditional or a function that has a conditional inside of it
 
-    // for (var x = 1; x <=16; x += 1) {
-    //     if(x % 3 === 0) {
-    //         console.log("fizz");
-    //     } else if (x % 5 === 0) {
-    //         console.log("buzz");
-    //     } else if ((x % 3 === 0)  &&  (x % 5 === 0)) {
-    //         console.log("fizzBuzz");
-    //     }
-    //     console.log(x);
-    // }
+
 
     for (var x = 1; x <=100; x += 1) {
         if ((x % 3 === 0)  &&  (x % 5 === 0)) {

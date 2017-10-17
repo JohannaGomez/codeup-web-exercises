@@ -97,6 +97,7 @@
 var allCones = Math.floor(Math.random() * 50) + 50;
 // // This expression will generate a random number between 1 and 5
 console.log("This is the number of cones you have to sell: " + allCones);
+
 do {
     var conesBought = Math.floor(Math.random() * 5) + 1;
     if (conesBought > allCones) {
@@ -107,10 +108,33 @@ do {
     console.log("this client bought " + conesBought + ".  You have " + allCones + " left to sell");
 } while (allCones > 0);
 console.log("yay!! you sold all the cones");
+//
+// **************************************this is Ryan's solution ****************************//
+// var allCones = Math.floor(Math.random() * 50) + 50;
+// console.log("This is the number of cones you have to sell: " + allCones);
+// do {
+//     var conesBought = Math.floor(Math.random() * 5) + 1;
+//     if (conesBought <= allCones) {
+//         allCones = allCones - conesBought;
+//         console.log("this client bought " + conesBought + ".  You have " + allCones + " left to sell");
+//     } else {
+//         console.log("sorry, I don't have enough cones");
+//     }
+// } while (allCones > 0);
+// console.log("yay!! you sold all the cones");
 
-
-    // 5 cones sold...  // if there are enough cones
-    //     Cannot sell you 6 cones I only have 3...  // If there are not enough cones
-    //     Yay! I sold them all! // If there are no more cones
+// **************************************this is Ryan's solution ****************************//
+// var allCones = Math.floor(Math.random() * 50) + 50;
+// console.log("This is the number of cones you have to sell: " + allCones);
+// while (allCones > 0) {
+//     var conesBought = Math.floor(Math.random() * 5) + 1;
+//     if (conesBought <= allCones) {
+//         allCones = allCones - conesBought;
+//         console.log("this client bought " + conesBought + ".  You have " + allCones + " left to sell");
+//     } else {
+//         console.log("sorry, I don't have enough cones");
+//     }
+// }
+// console.log("yay!! you sold all the cones");
 
 })();
