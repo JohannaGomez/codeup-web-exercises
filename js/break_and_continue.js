@@ -1,40 +1,54 @@
-// Break and Continue continue
+// *****************************Break and Continue continue
 //
-// 1./ Create a file named break_and_continue.js in the js directory.
+
 // 2./ Prompt the user for an odd number between 1 and 50.
 // Use a loop and a break statement to continue prompting the user if they enter invalid input.
 
-function isEven(x) {
-    return parseFloat(x) % 2 === 0;
+
+function isEven(input) {
+    return parseFloat(input) % 2 === 0;
 }
-var oddNumber = prompt("please type an odd number between 1 and 50");
-for (i = 1; i <= 50; i +=1) {
-    if (isEven(oddNumber) && oddNumber <= 50) {
-        oddNumber = prompt("please type an odd number between 1 and 50");
-    } else if (i === oddNumber) {
-        console.log("Yikes!! Skipping number: " + x);
+
+function isOdd(input) {       // determine if a number is odd ...
+    // I can't even...
+    return !isEven(input);
+}
+
+function isNumeric(input) {      // determine if an input is a number
+    return !isNaN(input);
+}
+
+function isNegative(input) {     // determine if a number is negative
+    return input < 0;
+}
+
+function isPositive(input) {       // determine if a number is positive
+    return input > 0;
+}
+
+
+for (var i = 1; i <= 50; i += 1) {
+    var x = parseFloat(prompt("please type an odd number between 1 and 50"));
+    if (isNumeric(x) && isOdd(x) && isPositive(x)) {
+        console.log("Number to skip is: " + x);
         break;
-        console.log("sdfaldfasdfasdkfsffl;fadfl");
     }
-
 }
 
 
 
-// var numberToStopAt = 5;
-//
-// for (var i = 1; i < 100; i++) {
-//
-//     console.log('Loop counter is: ' + i);
-//
-//     if (i === numberToStopAt) {
-//         console.log('We have reached the stopping point: break!');
-//         // use the break keyword to exit from the while loop
-//         break;
-//         // nothing after the break will get processed
-//         console.log('You will never see this line.');
-//     }
-// }
+for (var i = 1; i < 50; i++) {
+    if (i === x) {
+        console.log("Yikes! Skipping number: " + x);
+        continue;
+    }
+    console.log('Here is an odd number: ' + i);
+}
+
+
+
+
+
 
 //     Use a loop and the statement to output all the odd numbers between 1 and 50, except for the number the user entered.
 // Number to skip is: 27
