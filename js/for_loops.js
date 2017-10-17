@@ -43,7 +43,7 @@
 // }
 //
 // for (var i = 1; i <= 10; i +=1) {
-//     var random = Math.floor((Math.random() * 200) + 20);
+//     var random = Math.floor((Math.random() * 180) + 20);
 //     if (isEven(random)) {
 //         console.log("your number " + random + " is EVEN");
 //     } else {
