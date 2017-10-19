@@ -104,6 +104,11 @@
     names.forEach(function(name) {
         console.log(name);
     })
+    /// this next one works the same:
+    // console.log("Refactor your above code to use a `forEach` loop")
+    // names.forEach(function(element, index, array) {
+    //     console.log(element);
+    // })
     /**
      * TODO:
      * Create the following three functions, each will accept an array and
@@ -124,6 +129,11 @@
     }
     first(numbers);
 
+    // function first(arr) {
+    //     return console.log(arr[0]);
+    // }
+    // first(arr[1, 2, 3, 4, 5]);
+
     function second(numbers) {
         return console.log(numbers[1]);
     }
@@ -133,6 +143,8 @@
         return console.log(numbers[numbers.length - 1]);
     }
     last(numbers);
+
+    or
 
 
 })();
