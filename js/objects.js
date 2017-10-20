@@ -1,4 +1,4 @@
-
+(function() {
 "use strict";
     // var cars = [
     //     {
@@ -113,9 +113,10 @@
     // shoppers.forEach(function (element, index, array) {
     //     if (element.amount > 200) {
     //         var discount = element.amount * 0.12;
-    //         var totalAfterDiscount = element.amount - discount
+    //         var totalAfterDiscount = element.amount - discount;
     //     } else {
     //         var discount = 0;
+    //         var totalAfterDiscount = element.amount - discount;
     //     }
     //     return console.log("buyer: " + element.name + " | total purchase: " + element.amount + " | discount: " + discount + "  | total after discount: " + totalAfterDiscount);
     // });
@@ -133,54 +134,55 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
-    var books = [
-            {
-                book: 1,
-                bookStore: "Book store ABC",
-                author: {
-                    firstName: "John",
-                    lastName: "Paul II"
-                },
-                title: "the title of book 1",
-            },
-            {
-                book: 2,
-                bookStore: "Book store DEF",
-                author: {
-                    firstName: "Johanna",
-                    lastName: "Gomez"
-                },
-                title: "the title of book 2",
-            },
-            {
-                book: 3,
-                bookStore: "Book store GHF",
-                author: {
-                    firstName: "Roy",
-                    lastName: "Lopez"
-                },
-                title: "How to be a good soldier"
-            },
-            {
-                book: 4,
-                bookStore: "Book store QUB",
-                author: {
-                    firstName: "Rj",
-                    lastName: "Lopez"
-                },
-                title: "My terrible twos",
-            },
-            {
-                book: 5,
-                bookStore: "Book store XYZ",
-                author: {
-                    firstName: "Alex",
-                    lastName: "Acebo"
-                },
-                title: "Tinkle Tinkle little star",
-            }
-
-        ];
+    // var books = [
+    //         {
+    //             book: 1,
+    //             bookStore: "Book store ABC",
+    //             author: {
+    //                 firstName: "John",
+    //                 lastName: "Paul II"
+    //             },
+    //             title: "the title of book 1",
+    //
+    //         },
+    //         {
+    //             book: 2,
+    //             bookStore: "Book store DEF",
+    //             author: {
+    //                 firstName: "Johanna",
+    //                 lastName: "Gomez"
+    //             },
+    //             title: "the title of book 2",
+    //         },
+    //         {
+    //             book: 3,
+    //             bookStore: "Book store GHF",
+    //             author: {
+    //                 firstName: "Roy",
+    //                 lastName: "Lopez"
+    //             },
+    //             title: "How to be a good soldier"
+    //         },
+    //         {
+    //             book: 4,
+    //             bookStore: "Book store QUB",
+    //             author: {
+    //                 firstName: "Rj",
+    //                 lastName: "Lopez"
+    //             },
+    //             title: "My terrible twos",
+    //         },
+    //         {
+    //             book: 5,
+    //             bookStore: "Book store XYZ",
+    //             author: {
+    //                 firstName: "Alex",
+    //                 lastName: "Acebo"
+    //             },
+    //             title: "Tinkle Tinkle little star",
+    //         }
+    //
+    //     ];
 // console.log(books[2]);
 // console.log(books[0].title);
 // console.log(books[0].author.firstName);
@@ -209,12 +211,12 @@
      *      ---
      *      ...
      */
-    books.forEach(function (element, index, array) {
-        console.log("Book #" + (index += 1));
-        console.log("Title: " + element.title);
-        console.log("Author: " + element.author.firstName + element.author.lastName);
-    console.log("-----------------------");
-    });
+    // books.forEach(function (element, index, array) {
+    //     console.log("Book #" + (index += 1));
+    //     console.log("Title: " + element.title);
+    //     console.log("Author: " + element.author.firstName + element.author.lastName);
+    // console.log("-----------------------");
+    // });
 
     /**
      * Bonus:
@@ -240,3 +242,32 @@
 
     };
     console.log(createBook("this is a new title", "Johanna", "Gomez"));
+    // var circle = {
+    //     radius: 5,
+    //
+    //     getArea: function(rad) {
+    //         // TODO: complete this method
+    //         var area = Math.PI * (rad * rad);
+    //         return area; // TODO: return the proper value
+    //     },
+    //
+    //     logInfo: function (doRounding) {
+    //         // TODO: complete this method.
+    //         if (doRounding) {
+    //             console.log("Rounded area of a circle with radius: " + this.radius + ", is: " + Math.round(this.getArea(this.radius)));
+    //             return Math.round(this.getArea(this.radius));
+    //         } else {
+    //             console.log("Area of a circle with radius: " + this.radius + ", is: " + this.getArea(this.radius));
+    //             return this.getArea(this.radius);
+    //         }
+    //         // If doRounding is true, round the result to the nearest integer.
+    //         // Otherwise, output the complete value
+    //
+    //     }
+    // };
+
+    function showBookInfo() {
+        return this.element;
+    }
+    console.log(showBookInfo(createBook()));
+})();
