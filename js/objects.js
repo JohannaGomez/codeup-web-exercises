@@ -104,21 +104,21 @@
      * and console.log the relevant messages for each person
      */
 
-    var shoppers = [
-        {name: 'Cameron', amount: 180},
-        {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320}
-    ];
-
-shoppers.forEach(function (element, index, array) {
-    if (element.amount > 200) {
-        var discount = element.amount * 0.12;
-        var totalAfterDiscount = element.amount - discount
-    } else {
-        var discount = 0;
-    }
-    return console.log("buyer: " + element.name + " | total purchase: " + element.amount + " | discount: " + discount + "  | total after discount: " + totalAfterDiscount);
-});
+    // var shoppers = [
+    //     {name: 'Cameron', amount: 180},
+    //     {name: 'Ryan', amount: 250},
+    //     {name: 'George', amount: 320}
+    // ];
+    //
+    // shoppers.forEach(function (element, index, array) {
+    //     if (element.amount > 200) {
+    //         var discount = element.amount * 0.12;
+    //         var totalAfterDiscount = element.amount - discount
+    //     } else {
+    //         var discount = 0;
+    //     }
+    //     return console.log("buyer: " + element.name + " | total purchase: " + element.amount + " | discount: " + discount + "  | total after discount: " + totalAfterDiscount);
+    // });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -132,29 +132,59 @@ shoppers.forEach(function (element, index, array) {
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
-        // var cars = [
-        //     {
-        //         make: "Toyota",
-        //         model: "Camry",
-        //         features: ["Automatic Windows", "Bluetooth Connectivity", "GPS Navigation"],
-        //         owner: {
-        //             name: "Jane Doe",
-        //             age: 30
-        //         }
-        //     },
-        //     {
-        //         make: "Honda",
-        //         model: "Accord",
-        //         features: ["Automatic Windows", "Great Gas Mileage", "AM/FM Radio"],
-        //         owner: {
-        //             name: "John Doe",
-        //             age: 31
-        //         }
-        //     }
-        // ];
 
+    var books = [
+            {
+                book: 1,
+                bookStore: "Book store ABC",
+                author: {
+                    firstName: "John",
+                    lastName: "Paul II"
+                },
+                title: "the title of book 1",
+            },
+            {
+                book: 2,
+                bookStore: "Book store DEF",
+                author: {
+                    firstName: "Johanna",
+                    lastName: "Gomez"
+                },
+                title: "the title of book 2",
+            },
+            {
+                book: 3,
+                bookStore: "Book store GHF",
+                author: {
+                    firstName: "Roy",
+                    lastName: "Lopez"
+                },
+                title: "How to be a good soldier"
+            },
+            {
+                book: 4,
+                bookStore: "Book store QUB",
+                author: {
+                    firstName: "Rj",
+                    lastName: "Lopez"
+                },
+                title: "My terrible twos",
+            },
+            {
+                book: 5,
+                bookStore: "Book store XYZ",
+                author: {
+                    firstName: "Alex",
+                    lastName: "Acebo"
+                },
+                title: "Tinkle Tinkle little star",
+            }
 
-
+        ];
+// console.log(books[2]);
+// console.log(books[0].title);
+// console.log(books[0].author.firstName);
+// console.log(books[0].author.lastName);
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -179,6 +209,12 @@ shoppers.forEach(function (element, index, array) {
      *      ---
      *      ...
      */
+    books.forEach(function (element, index, array) {
+        console.log("Book #" + (index += 1));
+        console.log("Title: " + element.title);
+        console.log("Author: " + element.author.firstName + element.author.lastName);
+    console.log("-----------------------");
+    });
 
     /**
      * Bonus:
@@ -190,3 +226,17 @@ shoppers.forEach(function (element, index, array) {
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+    "use strict";
+
+
+    function createBook(strTitle, strFirstName, strLastName) {
+            return {
+                    title: strTitle,
+                    author: {
+                        firstName: strFirstName,
+                        lastName: strLastName
+                    }
+                };
+
+    };
+    console.log(createBook("this is a new title", "Johanna", "Gomez"));
