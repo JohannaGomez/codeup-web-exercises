@@ -81,14 +81,24 @@
     // var person = {
     //     firstName: "Pao",
     //     lastName: "Gomez",
-    //     sayHello: function (string) {
-    //         return "Hello from " + this.firstName +" " + this.lastName
+    //     sayHello: function () {
+    //         return "Hello from " + this.firstName +" " + this.lastName;
     //     }
     // };
     // console.log(person.firstName);
     // console.log(person.lastName);
     // console.log(person.sayHello());
 
+        // **********************************Justin's walk through: **
+    // var person = {};
+    // person.firstName = "Justin";
+    // person.lastName = "Reich";
+    // person.sayHello = function () {
+    //     return "Hello from " + this.firstName +" " + this.lastName;
+    // }
+    // console.log(person.firstName);
+    // console.log(person.lastName);
+    // console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -104,22 +114,54 @@
      * and console.log the relevant messages for each person
      */
 
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+
+    shoppers.forEach(function (element, index, array) {
+        if (element.amount > 200) {
+            var discount = element.amount * 0.12;
+            var totalAfterDiscount = element.amount - discount;
+        } else {
+            discount = 0;
+            totalAfterDiscount = element.amount - discount;
+        }
+        return console.log("buyer: " + element.name + " | total purchase: " + element.amount + " | discount: " + discount + "  | total after discount: " + totalAfterDiscount);
+    });
+
+    //  ********************************************** Justin's walk through: ***********
     // var shoppers = [
     //     {name: 'Cameron', amount: 180},
     //     {name: 'Ryan', amount: 250},
     //     {name: 'George', amount: 320}
     // ];
     //
-    // shoppers.forEach(function (element, index, array) {
-    //     if (element.amount > 200) {
-    //         var discount = element.amount * 0.12;
-    //         var totalAfterDiscount = element.amount - discount;
+    // var discountThreshold = 200;
+    // var discountPercentage = 0.12;
+    //
+    // function calculateDiscount(amount, disThreshold, disPercentage) {
+    //     if (amount > disThreshold) {
+    //         return amount - (amount * disPercentage);
     //     } else {
-    //         var discount = 0;
-    //         var totalAfterDiscount = element.amount - discount;
+    //         return amount;
     //     }
-    //     return console.log("buyer: " + element.name + " | total purchase: " + element.amount + " | discount: " + discount + "  | total after discount: " + totalAfterDiscount);
-    // });
+    // }
+    //
+    // function outputShopperInfo(arr) {
+    //     arr.forEach(function (shopper, index, array) {
+    //         var finalAmount = calculateDiscount(shopper.amount, discountThreshold, discountPercentage);
+    //         var message = shopper.name + " spent " ;
+    //         message += shopper.amount + " and a discount of ";
+    //         message += shopper.amount - finalAmount;
+    //         message += " and paid " + finalAmount;
+    //         console.log(message);
+    //     });
+    // }
+    //
+    // outputShopperInfo(shoppers);
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -134,59 +176,59 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
-    // var books = [
-    //         {
-    //             book: 1,
-    //             bookStore: "Book store ABC",
-    //             author: {
-    //                 firstName: "John",
-    //                 lastName: "Paul II"
-    //             },
-    //             title: "the title of book 1",
-    //
-    //         },
-    //         {
-    //             book: 2,
-    //             bookStore: "Book store DEF",
-    //             author: {
-    //                 firstName: "Johanna",
-    //                 lastName: "Gomez"
-    //             },
-    //             title: "the title of book 2",
-    //         },
-    //         {
-    //             book: 3,
-    //             bookStore: "Book store GHF",
-    //             author: {
-    //                 firstName: "Roy",
-    //                 lastName: "Lopez"
-    //             },
-    //             title: "How to be a good soldier"
-    //         },
-    //         {
-    //             book: 4,
-    //             bookStore: "Book store QUB",
-    //             author: {
-    //                 firstName: "Rj",
-    //                 lastName: "Lopez"
-    //             },
-    //             title: "My terrible twos",
-    //         },
-    //         {
-    //             book: 5,
-    //             bookStore: "Book store XYZ",
-    //             author: {
-    //                 firstName: "Alex",
-    //                 lastName: "Acebo"
-    //             },
-    //             title: "Tinkle Tinkle little star",
-    //         }
-    //
-    //     ];
-// console.log(books[2]);
-// console.log(books[0].title);
-// console.log(books[0].author.firstName);
-// console.log(books[0].author.lastName);
+    var books = [
+            {
+                book: 1,
+                bookStore: "Book store ABC",
+                author: {
+                    firstName: "John",
+                    lastName: "Paul II"
+                },
+                title: "the title of book 1",
+
+            },
+            {
+                book: 2,
+                bookStore: "Book store DEF",
+                author: {
+                    firstName: "Johanna",
+                    lastName: "Gomez"
+                },
+                title: "the title of book 2",
+            },
+            {
+                book: 3,
+                bookStore: "Book store GHF",
+                author: {
+                    firstName: "Roy",
+                    lastName: "Lopez"
+                },
+                title: "How to be a good soldier"
+            },
+            {
+                book: 4,
+                bookStore: "Book store QUB",
+                author: {
+                    firstName: "Rj",
+                    lastName: "Lopez"
+                },
+                title: "My terrible twos",
+            },
+            {
+                book: 5,
+                bookStore: "Book store XYZ",
+                author: {
+                    firstName: "Alex",
+                    lastName: "Acebo"
+                },
+                title: "Tinkle Tinkle little star",
+            }
+
+        ];
+
+console.log(books[0].title);
+console.log(books[0].author.firstName);
+console.log(books[0].author.lastName);
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -231,17 +273,18 @@
     "use strict";
 
 
-    function createBook(strTitle, strFirstName, strLastName) {
-            return {
-                    title: strTitle,
-                    author: {
-                        firstName: strFirstName,
-                        lastName: strLastName
-                    }
-                };
+    // function createBook(strTitle, strFirstName, strLastName) {
+    //         return {
+    //                 title: strTitle,
+    //                 author: {
+    //                     firstName: strFirstName,
+    //                     lastName: strLastName
+    //                 }
+    //             };
+    //
+    // };
 
-    };
-    console.log(createBook("this is a new title", "Johanna", "Gomez"));
+    // console.log(createBook("this is a new title", "Johanna", "Gomez"));
     // var circle = {
     //     radius: 5,
     //
@@ -266,8 +309,29 @@
     //     }
     // };
 
-    function showBookInfo() {
-        return this.element;
-    }
-    console.log(showBookInfo(createBook()));
+    // function showBookInfo() {
+    //     return this.element;
+    // }
+    // console.log(showBookInfo(createBook()));
+
+// ******** Justin's walk through: *********************
+//     function createBook(title, author) {
+//         var nameArray = author.split(" ");
+//         var firstName = nameArray[0];
+//         var lastName = nameArray[1];
+//         return {
+//             title: title,
+//             author: {
+//
+//             }
+//         }
+//     }
+//
+//
+//     function showBookInfo(book) {
+//         return this.element;
+//     }
+//     console.log(showBookInfo(createBook()));
+//
+
 })();
