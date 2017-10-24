@@ -10,51 +10,168 @@
 <button id="defuser">Defuse the BOM</button>
 
 <script>
-(function() {
+//(function() {
     "use strict";
 
-    var detonationTimer = 5;
-    var interval = 1000;
-
-    // TODO: This function needs to be called once every second
-    var updateTimer = setInterval(function () {
-        if (detonationTimer == 0) {
-            alert('EXTERMINATE!');
-            document.body.innerHTML = '';
-        } else if (detonationTimer > 0) {
-            document.getElementById('timer').innerHTML = detonationTimer;
-        }
-        detonationTimer--;
-    }, interval);
-
 //    var detonationTimer = 5;
-//    function updateTimer() {
+//    var interval = 1000;
+//
+//    // TODO: This function needs to be called once every second
+//    var updateTimer = setInterval(function () {
 //        if (detonationTimer == 0) {
 //            alert('EXTERMINATE!');
 //            document.body.innerHTML = '';
 //        } else if (detonationTimer > 0) {
 //            document.getElementById('timer').innerHTML = detonationTimer;
 //        }
-//
 //        detonationTimer--;
-//    }
+//    }, interval);
+//
+    //  **************** Ryan's walk through:  *************************************
+////    var detonationTimer = 5;
+////    function updateTimer() {
+////        if (detonationTimer == 0) {
+////            alert('EXTERMINATE!');
+////            document.body.innerHTML = '';
+////        } else if (detonationTimer > 0) {
+////            document.getElementById('timer').innerHTML = detonationTimer;
+////        }
+////
+////        detonationTimer--;
+////    };
+//       var intervalId = setInterval(updateTimer, 1000);
+//
+    //
+    //
+    //
+//    // TODO: When this function runs, it needs to
+//    // cancel the interval/timeout for updateTimer()
+//
+//
+//    function defuseTheBOM() {
+//        clearInterval(updateTimer);
+//    };
+//
+    //  **************** Ryan's walk through:  *************************************
+    //    function defuseTheBOM() {
+//        clearInterval(intervalId);
+//    };
+//    // Don't modify anything below this line!
+//    //
+//    // This causes the defuseTheBOM() function to be called
+//    // when the "defuser" button is clicked.
+//    // We will learn about events in the DOM lessons
+//    var defuser = document.getElementById('defuser');
+//    defuser.addEventListener('click', defuseTheBOM);
 
-    // TODO: When this function runs, it needs to
-    // cancel the interval/timeout for updateTimer()
 
 
-    function defuseTheBOM() {
-        clearInterval(updateTimer);
+
+// this code will produce a console log every second
+// when count >= max, the interval is cancelled, and the logging will stop
+
+//    var count = 0;
+//    var max = 10;
+//    var interval = 2000; // interval time in milliseconds
+//
+//    var intervalId = setInterval(function () {
+//        if (count >= max) {
+//            clearInterval(intervalId);
+//            console.log('All done');
+//        } else {
+//            count++;
+//            console.log('Repeating this line ' + count);
+//        }
+//    }, interval);
+
+//    var delay = 5000; // delay time in milliseconds
+//
+//    var timeoutId = setTimeout(function () {
+//        alert('Here is a delayed hello!');
+//    }, delay);
+
+
+//================================= BOM BONUSES
+
+
+//    *******************************  BONUS 1: Build a Jack-In-The-Box
+    //    Define an object called jackBox.
+//    Include properties for...
+//      - triggered   - whether or not the box has been sprung (should be false by default)
+//      - intervalId  - set to null
+//      - play()      - once called, if triggered is false, console.log one new element in the lyrics array every second
+//                 after the lyrics, stop the interval, set the triggered property to true, and alert POP!
+//      - windUp()    - once called will stop the play() method and set triggered to false
+//      - lyrics      - an array with the following elements:
+//
+
+    var jackBox = {
+        triggered: false,
+        intervalId: null,
+        i: 0,
+        lyricsArray: [
+            "All a-...",
+            "-round the ...",
+            "mulberry...",
+            "bush, The...",
+            "monkey...",
+            "chased the...",
+            "wea-...",
+            "-sel...",
+            "The monkey...",
+            "stopped to...",
+            "pull up his...",
+            "sock,...",
+            "Pop!...",
+            "goes the...",
+            "wea-...",
+            "-sel."
+        ],
+        play: function() {
+            if(!this.triggered) {
+                this.intervalId = setInterval(function() {
+                    if(jackBox.i < jackBox.lyrics.length) {
+                        console.log(jackBox.lyricsArray[jackBox.i]);
+                        jackBox.i += 1;
+                    } else {
+                        jackBox.triggered = true;
+                        clearInterval(jackBox.intervalId);
+                        alert("P-O-P!");
+                    }
+                },1000)
+            } else {
+                console.log("testing!");
+            }
+        },
+        windUp: function() {
+            if (this.intervalId) {
+                clearInterval(this.intervalId);
+                this.triggered = false;
+                this.i = 0;
+            }
+        }
     };
 
-    // Don't modify anything below this line!
-    //
-    // This causes the defuseTheBOM() function to be called
-    // when the "defuser" button is clicked.
-    // We will learn about events in the DOM lessons
-    var defuser = document.getElementById('defuser');
-    defuser.addEventListener('click', defuseTheBOM);
-})();
+
+
+
+//
+//    BONUS 2: Build a Stop Watch
+//
+//    Define an object called stopWatch.
+//
+//        Include the following properties...
+//
+//        intervalId
+//    count
+//
+//    Include the following methods...
+//
+//    start() - starts console logging an increasing count every second
+//    pause() - pauses counter
+//    reset() - stops counter and resets count to zero
+
+//})();
 </script>
 </body>
 </html>

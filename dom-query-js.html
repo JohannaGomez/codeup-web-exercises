@@ -5,6 +5,10 @@
     <title>DOM: Query and Modify</title>
 </head>
 <body>
+    <button id="testBtn">Changing to Java is Cool</button>
+    <button id="loginBtn">Sub-header to blue</button>
+    <button id="listBtn">Accessing to the list</button>
+    <button id="missionBtn">Mission Accomplish</button>
 
 <h1 id="main-header">Hello World!</h1>
 <ul>
@@ -26,36 +30,124 @@
 </p>
 
 <script>
+    //Add 4 buttons to the page. Attach click event listeners to each of the buttons
+    // and have the handlers perform the modifications that were automatically taking place.
+    // For example, the first button should set inner html of mainHeader to "JavaScript is Cool".
+    //    View the results in your browser to test for the expected output.
+    //    Finally, save your work, commit the changes to your git repository, and push to GitHub.
+
     (function() {
-        "use strict";
-        // TODO: Uncomment next line and get the main header element by id
-         var mainHeader = document.getElementById("main-header");
+    "use strict";
+    // TODO: get the main header element by id
+    // TODO: Set inner html of mainHeader to "JavaScript is Cool" using the button id "testBtn" attaching click event listener to it.
 
-        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+    var testBtn =  document.getElementById("testBtn");
+    var mainHeader = document.getElementById("main-header");
+    function changeMainHeader() {
         mainHeader.innerHTML = "JavaScript is Cool";
-        // TODO: Uncomment the next line and get the sub header element by id
-         var subHeader = document.getElementById("sub-header");
+    };
+    testBtn.addEventListener("click", changeMainHeader);
 
-        // TODO: Set the text color of subHeader to blue
+
+
+    // TODO: Uncomment the next line and get the sub header element by id
+    // TODO: Set the text color of subHeader to blue using the button id "logingBtn" attaching click event listener to it.
+
+    var subHeader = document.getElementById("sub-header");
+    var logingBtn = document.getElementById("loginBtn");
+    function changeColorToBlue() {
         subHeader.style.color = "#0000FF";
+    }
+    logingBtn.addEventListener("click", changeColorToBlue);
 
-        // TODO: Uncomment the next line and get all list items
-         var listItems = document.getElementsByTagName("li");
 
-        // TODO: Set text color on every other list item to grey
-        for (var i = 0; i <= listItems.length ; i = i + 2) {
-//            console.log(listItems[i].innerText);
+    // TODO: Uncomment the next line and get all list items
+    // TODO: Set text color on every other list item to grey using the button id "listBtn" attaching click event listener to it.
+    var listItems = document.getElementsByTagName("li");
+    var listBtn = document.getElementById("listBtn");
+    function listToGrey()
+    {
+        for (var i = 0; i <= listItems.length; i = i + 2) {
             listItems[i].style.color = "#808080";
+            listItems[i].style.fontFamily = "helvetica";
+            listItems[1].style.size = "5em";
         };
 
-        // TODO: Set text color of li with dbid = 1 to blue
-        listItems[0].style.color = "#0000FF";
+    };
+    listBtn.addEventListener("click", listToGrey);
 
-        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-         var subParagraphs = document.getElementsByClassName("sub-paragraph");
 
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+//    // TODO: Set text color of li with dbid = 1 to blue
+//    listItems[0].style.color = "#0000FF";
+//
+//    // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+//    // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+
+    var subParagraphs = document.getElementsByClassName("sub-paragraph");
+    var missionBtn = document.getElementById("missionBtn");
+    function missionAccomplish() {
         subParagraphs[0].innerHTML = "Mission Accomplished";
+    }
+    missionBtn.addEventListener("click", missionAccomplish);
+
+
+//        // TODO: Uncomment next line and get the main header element by id
+//         var mainHeader = document.getElementById("main-header");
+//
+//        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+//        mainHeader.innerHTML = "JavaScript is Cool";
+//
+//        // TODO: Uncomment the next line and get the sub header element by id
+//         var subHeader = document.getElementById("sub-header");
+//
+//        // TODO: Set the text color of subHeader to blue
+//        subHeader.style.color = "#0000FF";
+//
+//        // TODO: Uncomment the next line and get all list items
+//         var listItems = document.getElementsByTagName("li");
+//
+//        // TODO: Set text color on every other list item to grey
+//        for (var i = 0; i <= listItems.length ; i = i + 2) {
+////            console.log(listItems[i].innerText);
+//            listItems[i].style.color = "#808080";
+//        };
+//
+//        // TODO: Set text color of li with dbid = 1 to blue
+//        listItems[0].style.color = "#0000FF";
+//
+//        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+//         var subParagraphs = document.getElementsByClassName("sub-paragraph");
+//
+//        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+//        subParagraphs[0].innerHTML = "Mission Accomplished";
+
+        // ************** DOM Events
+
+//        var paragraph = document.getElementsByTagName("p")[0];
+//        console.log(paragraph);
+
+        // changge font-size of whatever paragraph  refers to
+//        function makeFontCool() {
+//            paragraph.style.fontSize = "1.5em";
+//            paragraph.style.color = "brown";
+//            paragraph.style.fontFamily = "helvetica";
+//            paragraph.style.fontStyle = "italic";
+//
+//        };
+    // changing "paragraph to this -- it works the same, but its more accurate ********//
+//        function makeFontCool() {
+//            this.style.fontSize = "1.5em";
+//            this.style.color = "brown";
+//            this.style.fontFamily = "helvetica";
+//            this.style.fontStyle = "italic";
+//
+//        };
+//        paragraph.addEventListener("mouseover", makeFontCool);
+//
+//        paragraph.removeEventListener("mouseover", makeFontCool);
+
+
+
     })();
 </script>
 </body>
