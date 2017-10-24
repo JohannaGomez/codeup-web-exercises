@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google maps</title>
+        <style type="text/css">
+            #map-canvas {
+                width: 970px;
+                height: 681px;
+            }
+        </style>
+</head>
+<body>
+<!-- div to hold map -->
+<div id="map-canvas"></div>
+
+<!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYgc_qkqrhGmnpOSFa7NnAxcdf5Ul4Cwg"></script>
+
+<!-- Script to show address on map -->
+<script type="text/javascript">
+    (function() {
+        "use strict";
+
+        // Set our map options
+        var mapOptions = {
+            // Set the zoom level
+            zoom: 17,
+
+            // This sets the center of the map at our location
+            center: {
+                lat: 29.350537,
+                lng: -98.127797
+            },
+            // Show this map in satellite view
+            mapTypeId: google.maps.MapTypeId.SATELLITE
+        };
+
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+
+
+
+    // Include code from previous example
+
+    // Set our address to geocode
+//    var address = "300 Alamo Plaza, San Antonio, TX, 78205";
+    var address = "484 Bluebonnet Rd., La Vernia, TX 78121";
+
+    // Init geocoder object
+    var geocoder = new google.maps.Geocoder();
+
+    // Geocode our address
+    geocoder.geocode({ "address": address }, function(results, status) {
+
+        // Check for a successful result
+        if (status == google.maps.GeocoderStatus.OK) {
+
+            // Recenter the map over the address
+            map.setCenter(results[0].geometry.location);
+        } else {
+
+            // Show an error message with the status if our request fails
+            alert("Geocoding was not successful - STATUS: " + status);
+        }
+    });
+
+        // Create lat and long for our marker position
+        var theDen = { lat: 29.350537, lng: -98.127797 };
+
+// Add the marker to our existing map
+        var marker = new google.maps.Marker({
+            position: theDen,
+            map: map
+        });
+
+        // Create a new infoWindow object with content
+        var infowindow = new google.maps.InfoWindow({
+            content: "This is hard, but I like it!!!"
+        });
+
+// Open the window using our map and marker
+        infowindow.open(map, marker);
+
+    })();
+</script>
+</body>
+
+
+</body>
+</html>
