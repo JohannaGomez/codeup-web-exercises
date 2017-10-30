@@ -155,10 +155,70 @@
 
 //        ****************************************Multiple Selectors
 //        Combine your selectors that highlight all the h1, p, and li elements.
-        $('h1, p, li').css('background-color', '#FF0');
+//        $('h1, p, li').css('background-color', '#FF0');
+
+//        ******************************* JQUERY EVENTS **********************************
+
+//        function handleParagraph(e) {
+//            var theElementWasClicked = e.target;
+//            theElementWasClicked.style.backgroundColor = 'yellow';
+//
+//        };
+//      --------------  vanilla JS does the same than jquery:
+//        var paragraphs = document.getElementsByTagName('p');
+//
+//        for (var i = 0; i < paragraphs.length; i ++) {
+//            paragraphs[i].addEventListener('click', handleParagraph);
+//        };
+
+//     Jquery using the function above handleParagraph:
+
+//        $('p').click(handleParagraph);
+
+        // using a anonimous function:
+
+//        $('h1').dblclick(function () {
+//            alert ('you doble click on an H!');
+//            var theElementWasClicked = this;
+//            theElementWasClicked.style.backgroundColor = 'yellow';
+//        });
 
 
+        // using hover function:
+//        function startHover() {
+//            alert('you started hovering');
+//        };
+//
+//        function stopHover() {
+//            alert('you stopped hovering');
+//        };
+//
+//        $('h1').hover(startHover, stopHover);
 
+
+// ************* EXERCISE:
+//        Add jQuery code that will change the background color of a h1 element when clicked.
+        $('h1').click(function () {
+//            alert ('you doble click on an H!');
+            var theElementWasClicked = this;
+            theElementWasClicked.style.backgroundColor = 'yellow';
+        });
+//
+//            Make all paragraphs have a font size of 18px when they are double clicked.
+        $('p').dblclick(function () {
+            this.style.fontSize = '30px';
+        });
+//
+//            Set all li text color to red when the mouse is hovering, reset to black when it is not.
+        function startHover() {
+            this.style.color = "red";
+        };
+
+        function stopHover() {
+            this.style.color = "blue";
+        };
+
+        $('li').hover(startHover, stopHover);
     });
 
 </script>
