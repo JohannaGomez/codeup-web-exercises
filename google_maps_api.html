@@ -22,66 +22,188 @@
     (function() {
         "use strict";
 
-        // Set our map options
-        var mapOptions = {
-            // Set the zoom level
-            zoom: 17,
+//        // Set our map options
+//        var mapOptions = {
+//            // Set the zoom level
+//            zoom: 17,
+//
+//            // This sets the center of the map at our location
+//            center: {
+//                lat: 29.350537,
+//                lng: -98.127797
+//            },
+//            // Show this map in satellite view
+//            mapTypeId: google.maps.MapTypeId.SATELLITE
+//        };
+//
+//        // Render the map
+//        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+//
+//
+//
+//
+//    // Include code from previous example
+//
+//    // Set our address to geocode
+////    var address = "300 Alamo Plaza, San Antonio, TX, 78205";
+//    var address = "484 Bluebonnet Rd., La Vernia, TX 78121";
+//
+//    // Init geocoder object
+//    var geocoder = new google.maps.Geocoder();
+//
+//    // Geocode our address
+//    geocoder.geocode({ "address": address }, function(results, status) {
+//
+//        // Check for a successful result
+//        if (status == google.maps.GeocoderStatus.OK) {
+//
+//            // Recenter the map over the address
+//            map.setCenter(results[0].geometry.location);
+//        } else {
+//
+//            // Show an error message with the status if our request fails
+//            alert("Geocoding was not successful - STATUS: " + status);
+//        }
+//    });
+//
+//        // Create lat and long for our marker position
+//        var theDen = { lat: 29.350537, lng: -98.127797 };
+//
+//// Add the marker to our existing map
+//        var marker = new google.maps.Marker({
+//            position: theDen,
+//            draggable: true,
+//            animation: google.maps.Animation.DROP,
+//            map: map
+//        });
+//
+//        var contentString = '<div id="content">'+
+//            '<div id="siteNotice">'+
+//            '</div>'+
+//            '<h1 id="firstHeading" class="firstHeading">The Den</h1>'+
+//            '<div id="bodyContent">'+
+//            '<p><b>The Den</b>, The Den, a top rated La Vernia Restaurant, ' +
+//            'opened in January 2016. Cradled by rolling hills, ' +
+//            'The Den features a newly constructed building, ' +
+//            'a 7000 square foot AstroTurf outdoor seating area, patio, ' +
+//            'bandstand, and children\'s play area.  </p>'+
+//            '<p>Attribution: The Den, <a href="http://www.thedenlavernia.com/">'+
+//            'http://www.thedenlavernia.com/</a> '+
+//            '</p>'+
+//            '</div>'+
+//            '</div>';
+//
+//        // Create a new infoWindow object with content
+//        var infowindow = new google.maps.InfoWindow({
+//            content: contentString
+//        });
+//
+////
+//
+//// Open the window using our map and marker
+//        marker.addListener("click", function () {
+//            infowindow.open(map, marker);
+//        });
 
-            // This sets the center of the map at our location
+
+
+
+        // ============== BUILD MAP  ===============================//
+
+        function initMap(optionsObject) {
+            return new google.maps.Map(document.getElementById("map"), optionsObject);
+        }
+
+        var map = initMap(mapOptions);
+
+        var mapOptions = {
+            zoom: 10,
             center: {
-                lat: 29.350537,
-                lng: -98.127797
-            },
-            // Show this map in satellite view
-            mapTypeId: google.maps.MapTypeId.SATELLITE
+                lat:  29.426791,
+                lng: -98.489602
+            }
         };
 
-        // Render the map
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        var restaurants = [
+            {
+                name: "The Den",
+                address: "484 Bluebonnet Rd., La Vernia, TX 78121",
+                info: "the best family friendly restaurant"
+            },
+
+            {
+                name: "Chama Gaucha",
+                address: "18318 Sonterra Pl, San Antonio, TX 78258",
+                info: "The best food ever!"
+            },
+
+            {
+                name: "Western Steak House",
+                address: "11985 US-87, La Vernia, TX 78121",
+                info: "love their rib eye"
+            }
 
 
 
 
-    // Include code from previous example
 
-    // Set our address to geocode
-//    var address = "300 Alamo Plaza, San Antonio, TX, 78205";
-    var address = "484 Bluebonnet Rd., La Vernia, TX 78121";
+        ];
 
-    // Init geocoder object
-    var geocoder = new google.maps.Geocoder();
+//  ============== GEOCODING
 
-    // Geocode our address
-    geocoder.geocode({ "address": address }, function(results, status) {
+        function getLocation(diningObj) {
 
-        // Check for a successful result
-        if (status == google.maps.GeocoderStatus.OK) {
+            var geocoder = new google.maps.Geocoder();
 
-            // Recenter the map over the address
-            map.setCenter(results[0].geometry.location);
-        } else {
+            geocoder.geocode({address: diningObj.address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var position = results[0].geometry.location;
+                    addMarkerAndInfoWindow(position, diningObj.name, diningObj.info);
+                } else {
+                    alert("Geocoding unsuccessful");
+                }
+            });
 
-            // Show an error message with the status if our request fails
-            alert("Geocoding was not successful - STATUS: " + status);
         }
-    });
-
-        // Create lat and long for our marker position
-        var theDen = { lat: 29.350537, lng: -98.127797 };
-
-// Add the marker to our existing map
-        var marker = new google.maps.Marker({
-            position: theDen,
-            map: map
+        restaurants.forEach(function (restaurant) {
+            getLocation(restaurants)
         });
 
-        // Create a new infoWindow object with content
-        var infowindow = new google.maps.InfoWindow({
-            content: "This is hard, but I like it!!!"
-        });
 
-// Open the window using our map and marker
-        infowindow.open(map, marker);
+
+        //  ============== ADD MARKER AND INFO WINDOW
+
+        function addMarkerAndInfoWindow(position, name, infoText) {
+            console.log(position);
+            console.log(name);
+            console.log(infoText);
+
+
+            var marker = new google.maps.Marker({
+                position: position,
+                map: map
+            });
+
+            var infoWindowContent = '<h3>' + name + '</h3>';
+            infoWindowContent += '<p>' + infoText + '</p>';
+
+            var infoWindow = new google.maps.InfoWindow({
+                content: infoWindowContent
+            });
+
+            infoWindow.open(map, marker);
+
+        }
+
+
+
+
+
+
+
+
+
+
 
     })();
 </script>

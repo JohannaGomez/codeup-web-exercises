@@ -1,13 +1,16 @@
-#string
+#string;
 
 .fancy-header {
     color: purple;
     text-decoration: underline;
 }
-h1, h2, h3 {
+h1, h3, h4 {
     text-align: center;
 }
 
+h2 {
+    text-align: left;
+}
 header {
     color: purple;
     text-decoration: underline;
@@ -15,12 +18,12 @@ header {
 
 body {
     font-family: 'Germania One', cursive;
-    color: aqua;
-    background-color: coral;
-    background-image: url(https://static.pexels.com/photos/370799/pexels-photo-370799.jpeg);
-    background-size: 50%;
-    background-position: center;
-    background-repeat: no-repeat;
+    color: black;
+    /*background-color: coral;*/
+    /*background-image: url(https://static.pexels.com/photos/370799/pexels-photo-370799.jpeg);*/
+    /*background-size: 50%;*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
 
 }
 

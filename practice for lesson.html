@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+// create a function that can take in an array of objects with a property of num
+// return the sum of all the values of the object num properties
+
+
+var objs = [
+    {
+        num: 2
+    },
+    {
+        num: 2
+    }
+];
+
+function addProperties (objs) {
+
+    var sum = 0;
+    objs.forEach(function(obj) {
+    sum += obj.num;
+    });
+
+    return sum;
+};
+
+</script>
+</body>
+</html>
