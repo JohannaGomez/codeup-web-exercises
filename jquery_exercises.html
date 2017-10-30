@@ -22,7 +22,7 @@
     </ul>
 </div>
 <div>
-    <h2 id="'process">Our Process</h2>
+    <h2 id="process">Our Process</h2>
     <ol>
         <li id="plan" class="purple first_item"><span>P</span>lan</li>
         <li class="purple">Evaluate</li>
@@ -30,7 +30,7 @@
     </ol>
 </div>
 <div>
-    <h2 id="'vision">2020 Vision</h2>
+    <h2 id="vision2020">2020 Vision</h2>
     <ul>
         <li>Becomen # 1 in <span>T</span>echnology</li>
         <li>Increase success by 20%</li>
@@ -109,13 +109,20 @@
 //        jqHeader.html("header changed!! using html");
 //        jqHeader.text("header changed!!! using text");
 
+//        Use jQuery to select an element by the id. Alert the contents of the element.
         var coreValues = $('#values').html();
         alert(coreValues);
 
+//        Update the jQuery code to select and alert a different id.
+        var jQProcess = $('#process').html();
+        alert(jQProcess);
 
+//        Use the same id on 2 elements. How does this change the jQuery selection?
+        var jQVision = $('#vision').html();
+        alert(jQVision);
 
-
-
+//        Remove the duplicate id. Each id should be unique on that page.
+            // done  vision2020 is the new one
 
 
 
