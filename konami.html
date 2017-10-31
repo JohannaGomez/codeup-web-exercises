@@ -39,6 +39,7 @@
 
             if (i == keyArray.length) {
                 alert('you got the konomi code!!!');
+                $('body').html('<img src: https://www.popwebdesign.net/popart_blog/wp-content/uploads/2016/05/lorem-ipsum-filler-text.jpg /img>')
                 // reset function to be set
                 reset();
             };
@@ -48,31 +49,31 @@
 
 // my original solution which didn't work ha!!
 
-    var keyArray = [38,38,40,40,37,39,37,39,66,65];
-    var newKeyArray = [];
-    var finalArray = [];
-    for (var i = 0; i <=9; i ++) {
-        $('document').keydown(function(e) {
-            var key = e.keyCode;
-            newKeyArray.push(key);
-            console.log("new key array" + newKeyArray);
-            if (newKeyArray[i] === keyArray[i]) {
-                finalArray.push(key);
-                console.log('final array' + finalArray);
-            } else {
-                reset();
-            };
-        });
-    };
-
-
-
-    if (keyArray === finalArray) {
-        alert('you entered your konami code!!!');
-    } else {
-        alert('try again');
-    };
-
+//    var keyArray = [38,38,40,40,37,39,37,39,66,65];
+//    var newKeyArray = [];
+//    var finalArray = [];
+//    for (var i = 0; i <=9; i ++) {
+//        $('document').keydown(function(e) {
+//            var key = e.keyCode;
+//            newKeyArray.push(key);
+//            console.log("new key array" + newKeyArray);
+//            if (newKeyArray[i] === keyArray[i]) {
+//                finalArray.push(key);
+//                console.log('final array' + finalArray);
+//            } else {
+//                reset();
+//            };
+//        });
+//    };
+//
+//
+//
+//    if (keyArray === finalArray) {
+//        alert('you entered your konami code!!!');
+//    } else {
+//        alert('try again');
+//    };
+//
 
 
 
