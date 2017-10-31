@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+<h2>[up up down down left right left right b a]</h2>
+<form>
+    <input type="text" id="konami" name="textfield" placeholder="Type Here"/>
+</form>
+
+<script src="./js/jquery-2.2.4.js"></script>
+<script>
+    $(document).ready(function() {
+        "use strict";
+
+        // Vivian's help:
+
+        var i = 0;
+
+        function reset() {
+            i = 0;
+        };
+
+        var keyArray = [38,38,40,40,37,39,37,39,66,65];
+
+        $(document).keydown(function(e) {
+            var userKey = e.keyCode;
+            console.log("this is the user key: " + userKey);
+            if (userKey === keyArray[i]) {
+                console.log("UserKey and key array matched")
+                i++;
+            } else {
+                console.log("didnt matched!!");
+                reset();
+                // reset function to  be set
+            };
+
+            if (i == keyArray.length) {
+                alert('you got the konomi code!!!');
+                // reset function to be set
+                reset();
+            };
+        });
+
+
+
+// my original solution which didn't work ha!!
+
+    var keyArray = [38,38,40,40,37,39,37,39,66,65];
+    var newKeyArray = [];
+    var finalArray = [];
+    for (var i = 0; i <=9; i ++) {
+        $('document').keydown(function(e) {
+            var key = e.keyCode;
+            newKeyArray.push(key);
+            console.log("new key array" + newKeyArray);
+            if (newKeyArray[i] === keyArray[i]) {
+                finalArray.push(key);
+                console.log('final array' + finalArray);
+            } else {
+                reset();
+            };
+        });
+    };
+
+
+
+    if (keyArray === finalArray) {
+        alert('you entered your konami code!!!');
+    } else {
+        alert('try again');
+    };
+
+
+
+
+
+    });
+
+</script>
+</body>
+</html>
+
