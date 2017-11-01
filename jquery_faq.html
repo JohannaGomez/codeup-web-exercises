@@ -12,6 +12,7 @@
         .invisible {
             display: none;
         }
+
     </style>
 </head>
 <body>
@@ -76,6 +77,8 @@
     </dl>
     <a href="#" id="switching">Toogle Link!!</a>
 
+    <h2 id="hiddenH2">please Register !!!</h2>
+
     <h3 id="national-parks-heading">National Parks</h3>
     <ul id="national-parks">
         <li>Arches</li>
@@ -109,6 +112,7 @@
     $(document).ready(function() {
 
         "use strict";
+
         //========================>first exercise starts here :
 //        $('#switching').on('click', function () {
 ////            console.log('clicking on the anchor tag');
@@ -212,12 +216,13 @@
 
 // and when the corresponding h3 is clicked, the display of the ul should be toggled with a sliding effect.
         $('h3').click(function () {
-            console.log($(this).next().children().text());
-            $(this).next().children().toggle();
+            console.log($(this).next());
+            $(this).next().toggle().slideDown();
         });
 //
 // 3.- After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site.
-//
+
+        $('#hiddenH2').hide().fadeIn(8000);
 // 4.- As always, make sure you are adding, commiting and pushing to Github.
 
 
