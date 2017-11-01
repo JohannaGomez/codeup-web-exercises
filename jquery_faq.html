@@ -13,6 +13,25 @@
             display: none;
         }
 
+        .frame {
+            border: 10px solid black;
+            height: 250px;
+        }
+
+        .picture1 {
+            background-image: url("images/denali1.jpg");
+            background-size: cover;
+        }
+
+        .picture2 {
+            background-image: url("images/denali2.jpg");
+            background-size: cover;
+        }
+
+        .picture3 {
+            background-image: url("images/denali3.jpg");
+            background-size: cover;
+        }
     </style>
 </head>
 <body>
@@ -101,10 +120,28 @@
         <li>Extra list 2</li>
     </ul>
 
-    <button class="btn btn-primary" id="yellowBtn">
-        Last li in yellow
-    </button>
-
+    <div class="row">
+        <div class="col-lg-offset-5">
+            <button class="btn btn-primary" id="yellowBtn">
+                Last li in yellow
+            </button>
+        </div>
+    </div>
+    <!-- jQuery Traversal Bonus -->
+    <div class="row">
+       <div class="col-md-4">
+           <div class="frame picture1"></div>
+           <button id="leftSwapBtn" class="pictureBtn btn btn-primary center-block">Swap</button>
+       </div>
+       <div class="col-md-4">
+           <div class="frame picture2"></div>
+           <button id="middleSwapBtn" class="pictureBtn btn btn-primary center-block">Swap</button>
+       </div>
+       <div class="col-md-4">
+           <div class="frame picture3"></div>
+           <button id="rightSwapBtn" class="pictureBtn btn btn-primary center-block">Swap</button>
+       </div>
+    </div>
 </div>
 <script src="./js/jquery-2.2.4.js"></script>
 <script>
@@ -223,7 +260,7 @@
 // 3.- After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site.
 
         $('#hiddenH2').hide().fadeIn(8000);
-        $('#hiddenH2').hide().fadeIn(8000);
+
 // 4.- As always, make sure you are adding, commiting and pushing to Github.
 
 
