@@ -37,11 +37,38 @@
 <body>
 <div class="container">
 
+    <!--<div class="alert alert-warning alert-dismissible" role="alert">-->
+        <!--<button type="button" class="close hiddenH2" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+        <!--<h2>please Register !!!</h2>-->
+    <!--</div>-->
+
+
+
+
+    <!--Modal-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Please register!!!</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--// 1.- At the top of the page, add a div with two elements, an h1 that reads "Would you like to sign up for our newsletter?"-->
     <!--// and a span that has an 'x' in it. When the 'x' is clicked, hide the entire div element.-->
-    <div>
-        <h1>Would you like to sign up for our newsletter ? </h1> <span> x </span>
+    <!--<div>-->
+        <!--<h1>Would you like to sign up for our newsletter ? </h1> <span> x </span>-->
+    <!--</div>-->
+
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close hiddenH2" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        Would you like to sign up for our newsletter ?
     </div>
+
+
     <h1>Frequently Asked Questions</h1>
     <dl>
         <dt><h2>Who is the director of the National Park Service?</h2></dt>
@@ -96,7 +123,6 @@
     </dl>
     <a href="#" id="switching">Toogle Link!!</a>
 
-    <h2 id="hiddenH2">please Register !!!</h2>
 
     <h3 id="national-parks-heading">National Parks</h3>
     <ul id="national-parks">
@@ -144,6 +170,7 @@
     </div>
 </div>
 <script src="./js/jquery-2.2.4.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script>
 
     $(document).ready(function() {
@@ -246,6 +273,7 @@
 // and a span that has an 'x' in it. When the 'x' is clicked, hide the entire div element.
         $('span').click(function () {
             $("h1").hide();
+//            $(this).parent().hide();        ===== Justin's solution =======
         });
 
 // 2.- The uls next to each h3 that contain facts about each park should start out hidden,
@@ -255,14 +283,26 @@
         $('h3').click(function () {
             console.log($(this).next());
             $(this).next().toggle().slideDown();
+//    or        $(this).next().slideToggle():
         });
 //
 // 3.- After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site.
 
-        $('#hiddenH2').hide().fadeIn(8000);
+        $('.hiddenH2').hide().fadeIn(8000);
 
 // 4.- As always, make sure you are adding, commiting and pushing to Github.
 
+//        ===============================   BONUS EXERCISE ===============================
+        //According to the curriculum by didnt work:
+
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').focus()
+        });
+        // With Luke's help:
+
+        $("#myModal").delay(8000).queue(function () {
+            $(this).modal();
+        });
 
     });
 </script>
