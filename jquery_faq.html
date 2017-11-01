@@ -16,6 +16,12 @@
 </head>
 <body>
 <div class="container">
+
+    <!--// 1.- At the top of the page, add a div with two elements, an h1 that reads "Would you like to sign up for our newsletter?"-->
+    <!--// and a span that has an 'x' in it. When the 'x' is clicked, hide the entire div element.-->
+    <div>
+        <h1>Would you like to sign up for our newsletter ? </h1> <span> x </span>
+    </div>
     <h1>Frequently Asked Questions</h1>
     <dl>
         <dt><h2>Who is the director of the National Park Service?</h2></dt>
@@ -108,7 +114,7 @@
 ////            console.log('clicking on the anchor tag');
 //            $('dd').toggleClass('invisible');
 //        });
-//
+
 //        $('dt').click(function () {
 //            var theElementWasClicked = this;
 //            theElementWasClicked.style.backgroundColor = 'yellow';
@@ -116,6 +122,8 @@
 ////        $(e.target).css('background-color', 'yellow');
 //        });
 // <=============================first exercise ends here!
+
+// ======================================= Jquery lesson - Traversing:  ================================================
 
 // ===========================> Ryan's class starts here:
 //        $('dt').each(function (index, element) {
@@ -126,33 +134,91 @@
 //        console.log($('dt').first().text());
 //
 //        console.log($('dt').first().next().text());
-//
-        // <====================================Ryan's class ends here!
+// <====================================Ryan's class ends here!
 
 //        Create a button that, when clicked, makes the last li in each ul have a yellow background.
 
-            $('#yellowBtn').click(function () {
-//                console.log('clicking on button');
-                $('ul').each(function (index, element) {
-                    $(this).children().last().css( "background-color", "yellow" );
-                });
-            });
+//            $('#yellowBtn').click(function () {
+////                console.log('clicking on button');
+//                $('ul').each(function (index, element) {
+//                    $(this).children().last().css( "background-color", "yellow" );
+//                    // this will work too: -->  $(element).children().last().css( "background-color", "yellow" );
+//                });
+//            });
 
 //        When any h3 is clicked, the li underneath it should be bolded. Use font-weight: bold to achieve this.
-            $('h3').click(function () {
-//                console.log('clicking on h3');
-//                console.log($(this).next().children().first().text());
-                $(this).next().children().first().css( "font-weight", "bold" );
-            });
+//            $('h3').click(function () {
+////                console.log('clicking on h3');
+////                console.log($(this).next().children().first().text());
+//                $(this).next().children().first().css( "font-weight", "bold" );
+//            });
 
 //        When any list item is clicked, first li of the parent ul should have a font color of blue.
-            $('li').click(function () {
-//                console.log('clicking on any list item and changing to blue the 1st li');
-                console.log($(this).parent().children().first().text());
-                $(this).parent().children().first().css("color", "blue");
-            });
+//            $('li').click(function () {
+////                console.log('clicking on any list item and changing to blue the 1st li');
+//                console.log($(this).parent().children().first().text());
+//                $(this).parent().children().first().css("color", "blue");
+//            });
+// ======================================= Jquery lesson - Effects:  ===================================================
+        // this is hiding h1 when clicking the button hideHeading:
+//        $('#hideHeadingBtn').click(function () {
+//            $("h1").hide();
+//        });
+
+        // this is hiding h1 when clicking the button :
+//        $('#showHeadingBtn').click(function () {
+//            $("h1").show();
+//        });
+
+        // this is switching  h1 to hiden and shown when clicking the button:
+//        $('#toggleHeadingBtn').click(function () {
+//            $("h1").toggle();
+//        });
+
+        // this is fadding out the table  when clicking the button:
+//        $('#fadeOutTableBtn').click(function () {
+//            $("table").fadeOut();
+//        });
+
+        // this is fadding in the table  when clicking the button:
+//        $('#fadeInTableBtn').click(function () {
+//            $("table").fadeIn();
+//        });
+
+        // this is switching  h1 to hiden and shown when clicking the button:
+//        $('#fadeToggleBtn').click(function () {
+//            $("table").fadeToggle();
+//        });
+
+        // slide up list
+//        $('#slideUpBtn').click(function () {
+//            $("ul").slideUp();
+//        });
+
+        // slide down list
+//        $('#slideDownBtn').click(function () {
+//            $("table").slideDown();
+//        });
 
 
+// 1.- At the top of the page, add a div with two elements, an h1 that reads "Would you like to sign up for our newsletter?"
+// and a span that has an 'x' in it. When the 'x' is clicked, hide the entire div element.
+        $('span').click(function () {
+            $("h1").hide();
+        });
+
+// 2.- The uls next to each h3 that contain facts about each park should start out hidden,
+        $('ul').hide();
+
+// and when the corresponding h3 is clicked, the display of the ul should be toggled with a sliding effect.
+        $('h3').click(function () {
+            console.log($(this).next().children().text());
+            $(this).next().children().toggle();
+        });
+//
+// 3.- After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site.
+//
+// 4.- As always, make sure you are adding, commiting and pushing to Github.
 
 
     });
