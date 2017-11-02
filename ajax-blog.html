@@ -62,12 +62,7 @@
         function buildHtml(arrObjs) {
             var arrObjsHtml = "";
             arrObjs.forEach(function (element, index, array) {
-                arrObjsHtml += "<div>"
-                    + "<h2>" + element.title + "</h2>"
-                    + "<p>" + element.content + "</p>"
-                    + "<h6>" + "Categories: " + element.categories + "</h6>"
-                    + "<h4>" + element.date + "</h4>"
-                    + "</div>";
+                arrObjsHtml += "<div>" + "<h2>" + element.title + "</h2>" + "<p>" + element.content + "</p>" + "<h6>" + "Categories: " + element.categories + "</h6>" + "<h1>" + element.date + "</h1>" + "</div>";
             });
 
             $("#posts").html(arrObjsHtml);
