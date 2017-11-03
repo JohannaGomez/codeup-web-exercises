@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wheater Map Project</title>
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        #printWeather  {
+            height: 300px;
+            background-color: #3e8f3e;
+            border: double;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="text-center">Weather Application!!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>San Antonio forecast</h3>
+        </div>
+    </div>
+
+    <div class="row" id="printWeather">
+
+    </div>
+
+    <!--<div class="row">-->
+        <!--<div class="col-lg-2">-->
+            <!--<button class="btn btn-primary" id="justInCaseBtn">-->
+                <!--Button just in case!-->
+            <!--</button>-->
+        <!--</div>-->
+
+        <!--<div class="col-lg-offset-7 col-lg-2">-->
+            <!--<button class="btn btn-primary" id="justInCase2Btn">-->
+                <!--Button just in case!-->
+            <!--</button>-->
+        <!--</div>-->
+
+    <!--</div>-->
+</div>
+
+<!-- jQuery Version 2.2.4 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Weather Maps -->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYgc_qkqrhGmnpOSFa7NnAxcdf5Ul4Cwg"></script>-->
+<!--<scrip src="https://api.openweathermap.org/data/2.5/weather?q=7ab9f03c3c98841f2249bd8d13da5c5e"></scrip>-->
+
+<!-- Custom JS -->
+<script>
+    $(document).ready(function() {
+        "use strict";
+
+//        $.get("http://api.openweathermap.org/data/2.5/weather", {
+//            APPID: "7ab9f03c3c98841f2249bd8d13da5c5e",
+//            q:     "San Antonio, TX"
+//        }).done(function (data) {
+//            console.log(data)
+//        }).fail(function () {
+//
+//        });
+
+
+        function makeWeatherReq() {
+            var sAweatherAjax = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+                APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
+                cnt: "3",
+                q:     "San Antonio, TX",
+                units: "imperial"
+
+            });
+            sAweatherAjax.done(function(data) {
+//                console.log(data);
+                console.log(data.list);
+                buildWeatherHtml(data.list);
+//                buildWeatherHtml2(data);
+//                buildWeatherHtml3(data);
+            });
+            sAweatherAjax.fail(function (jqXhr, status, error) {
+                console.log(status + "request failed");
+                console.log("error is: " + error);
+            });
+        };
+        makeWeatherReq();
+
+
+        function buildWeatherHtml(arrObjs) {
+            var weatherArrHtml = "";
+            arrObjs.forEach(function (element, index, array) {
+                weatherArrHtml += "<div class='col-lg-4'>"
+                    + "<h3>" + element.temp.min + "/" + element.temp.max + "</h3>"
+                    + "<p>" + "logo goes here" + "</p>"
+                    + "<p>" + "<strong>" + "Clouds: " + "</strong>" + element.clouds + "</p>"
+                    + "<p>" + "<strong>" + "Humidity: " + "</strong>" + element.humidity + "</p>"
+                    + "<p>" + "<strong>" + "Wind: " + "</strong>" + element.speed + "</p>"
+                    + "<p>" + "<strong>" + "Pressure: " + "</strong>" + element.pressure + "</p>"
+                    + "</div>";
+            });
+
+            console.log(weatherArrHtml);
+            $("#printWeather").html(weatherArrHtml);
+        };
+
+
+    });
+</script>
+
+</body>
+</html>
+</html>

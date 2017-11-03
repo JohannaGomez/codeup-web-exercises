@@ -3,7 +3,6 @@
 <head>
     <title>Ajax Jokes and Quotes</title>
     <link rel="stylesheet" href="CSS/bootstrap.css">
-    <link rel="stylesheet" href="blog-theme/css/clean-blog.css">
 
     <style>
         body {
@@ -64,9 +63,9 @@
         "use strict";
 //=============================  Joke Button ====================================
         function makeRequest() {
-            var jokeAjaxReq = $.ajax("http://quotes.stormconsultancy.co.uk/random.json");
+            var jokeAjaxReq = $.ajax("http://api.icndb.com/jokes/random/");
             jokeAjaxReq.done(function (data) {
-                console.log(data);
+//                console.log(data);
                 buildHtml(data)
             });
             jokeAjaxReq.fail(function (jqXhr, status) {
@@ -76,9 +75,9 @@
 
         function buildHtml(element) {
             var arrObjsHtml = "";
-            arrObjsHtml +="<p>" + element.quote + "</p>";
-//            console.log(element.quote);
-            console.log(arrObjsHtml);
+            arrObjsHtml +="<p>" + element.joke + "</p>";
+            console.log(element.joke);
+//            console.log(arrObjsHtml);
             $("#joke_content").html(arrObjsHtml);
         };
 
@@ -90,7 +89,7 @@
         function makeRequest() {
             var quoteAjaxReq = $.ajax("http://quotes.stormconsultancy.co.uk/random.json");
             quoteAjaxReq.done(function (data) {
-                console.log(data);
+//                console.log(data);
                 buildHtml(data)
             });
             quoteAjaxReq.fail(function (jqXhr, status) {
@@ -102,7 +101,7 @@
             var arrObjsHtml = "";
             arrObjsHtml +="<p>" + element.quote + "</p>";
             console.log(element.quote);
-            console.log(arrObjsHtml);
+//            console.log(arrObjsHtml);
             $("#quotes_content").html(arrObjsHtml);
         };
 
