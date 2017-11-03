@@ -1,10 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ajax Jokes and Quotes</title>
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="blog-theme/css/clean-blog.css">
+
+    <style>
+        body {
+            background-color: blueviolet;
+        }
+        .container {
+            margin-top: 50px;
+        }
+
+
+
+    </style>
 </head>
 <body>
 
+
+<!--2. Add two buttons to your page. One button should be for adding a random joke to your page. -->
+<!--Another button should be for adding a random programming quote.-->
+
+<!--2. http://quotes.stormconsultancy.co.uk/api provides a random programming quote. -->
+<!--Find the part of the api to get a random quote and send it a GET request-->
+
+<!--2. http://www.icndb.com/ is an API for Chuck Norris jokes. Read the documentation to find a way to send an GET request to get a random joke-->
+
+<!--3. When you click the jokes button, add a joke to the page. When you click the quotes button, replace the joke with a quote-->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 align="center">BONUS EXERCISES JOKES AND QUOTES!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                <button class="btn btn-primary" id="jokeBtn">
+                    Joke Button!
+                </button>
+            </div>
+            <div class="col-lg-offset-1 col-lg-6" id="joke_content"></div>
+            <div class="col-lg-offset-1 col-lg-6" id="quotes_content"></div>
+            <div class="col-lg-offset-1 col-lg-2">
+                <button class="btn btn-primary" id="quoteBtn">
+                    Random quotes!
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        "use strict";
+//=============================  Joke Button ====================================
+        function makeRequest() {
+            var jokeAjaxReq = $.ajax("http://quotes.stormconsultancy.co.uk/random.json");
+            jokeAjaxReq.done(function (data) {
+                console.log(data);
+                buildHtml(data)
+            });
+            jokeAjaxReq.fail(function (jqXhr, status) {
+                console.log(status + "request failed");
+            });
+        };
+
+        function buildHtml(element) {
+            var arrObjsHtml = "";
+            arrObjsHtml +="<p>" + element.quote + "</p>";
+//            console.log(element.quote);
+            console.log(arrObjsHtml);
+            $("#joke_content").html(arrObjsHtml);
+        };
+
+        $("#jokeBtn").click(makeRequest);
+
+
+
+//============================= Quote button ====================================
+        function makeRequest() {
+            var quoteAjaxReq = $.ajax("http://quotes.stormconsultancy.co.uk/random.json");
+            quoteAjaxReq.done(function (data) {
+                console.log(data);
+                buildHtml(data)
+            });
+            quoteAjaxReq.fail(function (jqXhr, status) {
+                console.log(status + "request failed");
+            });
+        };
+
+        function buildHtml(element) {
+            var arrObjsHtml = "";
+            arrObjsHtml +="<p>" + element.quote + "</p>";
+            console.log(element.quote);
+            console.log(arrObjsHtml);
+            $("#quotes_content").html(arrObjsHtml);
+        };
+
+        $("#quoteBtn").click(makeRequest);
+
+
+    });
+</script>
+
 </body>
+</html>
 </html>
