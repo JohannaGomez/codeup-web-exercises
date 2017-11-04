@@ -6,19 +6,30 @@
     <style>
         body {
             background-color: lightblue;
+            background-image: url("images/weather.jpg");
         }
+        
         .container {
             margin-top: 50px;
         }
-        #printWeather, .col-lg-4  {
+
+        #printWeather, .col-lg-4 {
             height: 300px;
-            background-color: #3e8f3e;
+            background-color: #999999;
             border: double;
             text-align: center;
         }
 
+        h1 {
+            color: red;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
 
-
+        #map {
+            width: 80vw;
+            height: 500px;
+            background-color: black;
+        }
 
     </style>
 </head>
@@ -33,26 +44,37 @@
         <div class="col-lg-12">
             <h3>San Antonio forecast</h3>
         </div>
+
     </div>
 
+    <div class="row">
+        <div class="col-lg-3">
+            <form method="get">
+                <input id="lat" type="number" name="lat" placeholder="Enter latitude here">
+                <input id="long" type="number" name="long" placeholder="Enter longitud here">
+            </form>
+        </div>
+        <div class="col-lg-offset-1 col-lg-2">
+            <button class="btn btn-primary" id="getMapBtn">
+                Get map and weather location
+            </button>
+        </div>
+    </div>
     <div class="row" id="printWeather">
+        <div id="show_icon">
+            <img>
+        </div>
 
     </div>
 
-    <!--<div class="row">-->
-        <!--<div class="col-lg-2">-->
-            <!--<button class="btn btn-primary" id="justInCaseBtn">-->
-                <!--Button just in case!-->
-            <!--</button>-->
-        <!--</div>-->
+    <div class="center-block" id="map"></div>
 
-        <!--<div class="col-lg-offset-7 col-lg-2">-->
+    <!--<div class="col-lg-offset-7 col-lg-2">-->
             <!--<button class="btn btn-primary" id="justInCase2Btn">-->
                 <!--Button just in case!-->
             <!--</button>-->
         <!--</div>-->
 
-    <!--</div>-->
 </div>
 
 <!-- jQuery Version 2.2.4 -->
@@ -61,24 +83,14 @@
 <!-- Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<!-- Weather Maps -->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYgc_qkqrhGmnpOSFa7NnAxcdf5Ul4Cwg"></script>-->
-<!--<scrip src="https://api.openweathermap.org/data/2.5/weather?q=7ab9f03c3c98841f2249bd8d13da5c5e"></scrip>-->
+
+<!-- Google Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKKYyyL0qO5WPswp3g3vmiicZbi2ESGrw"></script>
 
 <!-- Custom JS -->
 <script>
     $(document).ready(function() {
         "use strict";
-
-//        $.get("http://api.openweathermap.org/data/2.5/weather", {
-//            APPID: "7ab9f03c3c98841f2249bd8d13da5c5e",
-//            q:     "San Antonio, TX"
-//        }).done(function (data) {
-//            console.log(data)
-//        }).fail(function () {
-//
-//        });
-
 
         function makeWeatherReq() {
             var sAweatherAjax = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
@@ -89,11 +101,10 @@
 
             });
             sAweatherAjax.done(function(data) {
-//                console.log(data);
+                console.log(data);
                 console.log(data.list);
                 buildWeatherHtml(data.list);
-//                buildWeatherHtml2(data);
-//                buildWeatherHtml3(data);
+//
             });
             sAweatherAjax.fail(function (jqXhr, status, error) {
                 console.log(status + "request failed");
@@ -108,18 +119,44 @@
             arrObjs.forEach(function (element, index, array) {
                 weatherArrHtml += "<div class='col-lg-4'>"
                     + "<h3>" + element.temp.min + "/" + element.temp.max + "</h3>"
-                    + "<p>" + "logo goes here" + "</p>"
+                    + "<div id='show_icon'>"
+                        + "<img src=\'http://openweathermap.org/img/w/'> + element.weather[0].icon + .png>"
+                    + "</div>"
+                    + "<p>" + "logo goes here:" + element.weather[0].icon + "</p>"
                     + "<p>" + "<strong>" + "Clouds: " + "</strong>" + element.clouds + "</p>"
                     + "<p>" + "<strong>" + "Humidity: " + "</strong>" + element.humidity + "</p>"
                     + "<p>" + "<strong>" + "Wind: " + "</strong>" + element.speed + "</p>"
                     + "<p>" + "<strong>" + "Pressure: " + "</strong>" + element.pressure + "</p>"
                     + "</div>";
+//                $("#show_icon").html('<img src="http://openweathermap.org/img/w/' + element.weather[0].icon + '.png">');
             });
 
-            console.log(weatherArrHtml);
+//            console.log(weatherArrHtml);
             $("#printWeather").html(weatherArrHtml);
+
         };
 
+
+//=============================================== BUILDING THE MAP
+        var mapOptions = {
+            zoom: 10,
+            center: {
+                lat:  29.426791,
+                lng: -98.489602
+            }
+        };
+
+        function initMap(optionsObject) {
+            return new google.maps.Map(document.getElementById("map"), optionsObject);
+        }
+
+        var map = initMap(mapOptions);
+
+        $("#getMapBtn").click(function () {
+            var locationArray = [];
+
+            console.log("button was clicked");
+        })
 
     });
 </script>
