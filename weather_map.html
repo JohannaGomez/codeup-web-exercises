@@ -34,6 +34,10 @@
             margin-top: 10px;
         }
 
+        .invisible {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -43,14 +47,23 @@
             <h1 class="text-center">Weather Forecast</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <h3>Weather forecast</h3>
-        </div>
+    <!--<div class="row">-->
+        <!--<button id="cityBtn">Search by city</button>-->
+        <!--<button></button>-->
+        <!--<button></button>-->
+        <!--<button></button>-->
+        <!--<button></button>-->
+        <!--<button></button>-->
+        <!--<button></button>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+        <!--<div class="col-lg-12">-->
+            <!--<h3>Weather forecast</h3>-->
+        <!--</div>-->
 
-    </div>
+    <!--</div>-->
 
-    <div class="row">
+    <div class="row invisible">
         <div class="col-lg-3">
             <form method="get">
                 <input id="lat" type="text" name="lat" placeholder="Enter latitude here">
@@ -162,11 +175,8 @@
         $("#getMapBtn").click(function (event) {
             event.preventDefault();
             var lat = parseFloat($("#lat").val());
-            console.log("typeof lat:" + typeof lat);
-            console.log(lat);
+//            console.log("typeof lat:" + typeof lat);
             var long = parseFloat($("#long").val());
-            console.log(long);
-            console.log("typeof long: " + typeof long);
           $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
             APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
                 cnt: "3",
@@ -174,13 +184,49 @@
                 lon: long,
                 units: "imperial"
         }).done(function (data) {
-              console.log(data);
               buildWeatherHtml(data.list);
+//              getLocation()
         }).fail(function () {
               console.log("ajax failed")
           });
-
+//        var latLongString = $("#lat").val() + "," + $("#long").val();
+//        var latLongArray =  latLongString.split(",", 2);
+//        var latlng = {lat: parseFloat(latLongArray[0]), lng: parseFloat(latLongArray[1])};
+//        var geocoder = new google.maps.Geocoder();
+//        geocoder.geocode({location: latlng}, function(results, status) {
+//                if (status == google.maps.GeocoderStatus.OK) {
+//                    if (results[0]) {
+//                        map.setZoom(11);
+//                        var marker = new google.maps.Marker({
+//                            position: latlng,
+//                            map: map
+//                        });
+//                        infowindow.setContent(results[0].formatted_address);
+//                        infowindow.open(map, marker);
+//                    } else {
+//                        window.alert('No results found');
+//                    }
+//                }
+//        });
         });
+
+
+        //  ============== GEOCODING
+
+//        function getLocation() {
+//
+//            var geocoder = new google.maps.Geocoder();
+//
+//            geocoder.geocode({address: dinningOpt.address}, function(results, status) {
+//                if (status == google.maps.GeocoderStatus.OK) {
+//                    var position = results[0].geometry.location;
+//                    addMarkerAndInfoWindow(position, dinningOpt.name, dinningOpt.info);
+//                } else {
+//                    alert("Geocoding unsuccessful");
+//                }
+//            });
+//
+//        };
 
 //========================== BUILDING THE MAP WITH A DRAGGABLE PIN
         var myLatlng = new google.maps.LatLng(29.426791,-98.489602);
@@ -219,9 +265,28 @@
             });
         });
 
+//        - allow the user to search by place name, then move the map to that location and update the weather
+//        (will need to make a geocoding request, then use the results of the geocoding request in a call to the open weather api)
 
+        $('')
+        
+        function getLocation(address) {
 
+            var geocoder = new google.maps.Geocoder();
 
+            geocoder.geocode({address: address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var position = results[0].geometry.location;
+                    addMarkerAndInfoWindow(position, restaurant.name, restaurant.info);
+//                return position;
+                } else {
+                    return alert("Geocoding unsuccessful");
+                }
+            });
+
+        }
+
+        getLocation(restaurant.address);
 
     });
 </script>
