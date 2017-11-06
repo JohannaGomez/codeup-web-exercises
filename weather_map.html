@@ -54,29 +54,29 @@
         <!--</div>-->
     <!--</div>-->
 
-    <div class="row">
-        <div class="col-lg-3">
-            <form method="get">
-                <input id="city" type="text" name="lat" placeholder="Enter City here">
-                <span id="error"></span>
-                <button class="btn btn-primary" id="searchCityBtn">
-                    Search city
-                </button>
-            </form>
-        </div>
-    </div>
-
     <!--<div class="row">-->
         <!--<div class="col-lg-3">-->
             <!--<form method="get">-->
-                <!--<input id="lat" type="text" name="lat" placeholder="Enter latitude here">-->
-                <!--<input id="long" type="text" name="long" placeholder="Enter longitud here">-->
-                <!--<button class="btn btn-primary" id="getMapBtn">-->
-                    <!--Get map and weather location-->
+                <!--<input id="city" type="text" name="lat" placeholder="Enter City here">-->
+                <!--<span id="error"></span>-->
+                <!--<button class="btn btn-primary" id="searchCityBtn">-->
+                    <!--Search city-->
                 <!--</button>-->
             <!--</form>-->
         <!--</div>-->
     <!--</div>-->
+
+    <div class="row">
+        <div class="col-lg-3">
+            <form method="get">
+                <input id="lat" type="text" name="lat" placeholder="Enter latitude here">
+                <input id="long" type="text" name="long" placeholder="Enter longitud here">
+                <button class="btn btn-primary" id="getMapBtn">
+                    Get map and weather location
+                </button>
+            </form>
+        </div>
+    </div>
 
     <div class="row" id="printWeather">
 
@@ -189,39 +189,47 @@
                 units: "imperial"
             }).done(function (data) {
                 buildWeatherHtml(data.list);
-//              getLocation()
             }).fail(function () {
                 console.log("ajax failed")
             });
             var latLongString = $("#lat").val() + "," + $("#long").val();
             var latLongArray =  latLongString.split(",", 2);
             var latlng = {lat: parseFloat(latLongArray[0]), lng: parseFloat(latLongArray[1])};
-            var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({location: latlng}, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    if (results[0]) {
-                        console.log(results);
-                        getMapLoaded();
-//                        map.setZoom(11);
-                        var marker = new google.maps.Marker({
-                            position: latlng,
-                            map: map
-                        });
-//                        infowindow.setContent(results[0].formatted_address);
-//                        infowindow.open(map, marker);
-                    } else {
-                        window.alert('No results found');
-                    };
-                };
-        });
-        });
 
+            geocoder.geocode({"location": latlng}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    var lat = results[0].geometry.location.lat();
+                    var long = results[0].geometry.location.lng();
+                } else {
+                    alert('geocoder failed');
+                }
+                marker.setMap(null);
+                marker = new google.maps.Marker({
+                    position: {lat: lat, lng: long},
+                    map: map,
+                    draggable: true
+                });
+                $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+                    APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
+                    cnt: "3",
+                    lat: lat,
+                    lon: long,
+                    units: "imperial"
+                }).done(function (data) {
+                    console.log(data);
+                    buildWeatherHtml(data.list);
+                });
+            });
+        });
 
 
 
 //========================== BUILDING THE MAP WITH A DRAGGABLE PIN -- WORKING ==========================================
 
             var myLatlng = new google.maps.LatLng(29.426791,-98.489602);
+            var geocoder = new google.maps.Geocoder();
+            var marker;
 
             var mapOptions = {
                 zoom: 5,
@@ -262,41 +270,38 @@
 
 
 
-//        - allow the user to search by place name, then move the map to that location and update the weather
-//        (will need to make a geocoding request, then use the results of the geocoding request in a call to the open weather api)
 
-        var geocoder = new google.maps.Geocoder();
-        var marker;
+// ================================= SEARCH CITY, UPDATE WEATHER AND MAP -- WORKING ======================================
 
-        $("#searchCityBtn").click(function (event) {
-            event.preventDefault();
-            var city = $("#city").val();
-            geocoder.geocode({"address": city}, function(results, status) {
-                if (status == google.maps.GeocoderStatus.OK) {
-                    map.setCenter(results[0].geometry.location);
-                    var lat = results[0].geometry.location.lat();
-                    var long = results[0].geometry.location.lng();
-                } else {
-                    alert('geocoder failed');
-                }
-                marker.setMap(null);
-                marker = new google.maps.Marker({
-                    position: {lat: lat, lng: long},
-                    map: map,
-                    draggable: true
-                });
-                $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-                    APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
-                    cnt: "3",
-                    lat: lat,
-                    lon: long,
-                    units: "imperial"
-                }).done(function (data) {
-                    console.log(data);
-                    buildWeatherHtml(data.list);
-                });
-            });
-        });
+//        $("#searchCityBtn").click(function (event) {
+//            event.preventDefault();
+//            var city = $("#city").val();
+//            geocoder.geocode({"address": city}, function(results, status) {
+//                if (status == google.maps.GeocoderStatus.OK) {
+//                    map.setCenter(results[0].geometry.location);
+//                    var lat = results[0].geometry.location.lat();
+//                    var long = results[0].geometry.location.lng();
+//                } else {
+//                    alert('geocoder failed');
+//                }
+//                marker.setMap(null);
+//                marker = new google.maps.Marker({
+//                    position: {lat: lat, lng: long},
+//                    map: map,
+//                    draggable: true
+//                });
+//                $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+//                    APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
+//                    cnt: "3",
+//                    lat: lat,
+//                    lon: long,
+//                    units: "imperial"
+//                }).done(function (data) {
+//                    console.log(data);
+//                    buildWeatherHtml(data.list);
+//                });
+//            });
+//        });
 
 
 
