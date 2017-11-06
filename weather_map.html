@@ -42,7 +42,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <h3>San Antonio forecast</h3>
+            <h3>Weather forecast</h3>
         </div>
 
     </div>
@@ -50,20 +50,21 @@
     <div class="row">
         <div class="col-lg-3">
             <form method="get">
-                <input id="lat" type="number" name="lat" placeholder="Enter latitude here">
-                <input id="long" type="number" name="long" placeholder="Enter longitud here">
+                <input id="lat" type="text" name="lat" placeholder="Enter latitude here">
+                <input id="long" type="text" name="long" placeholder="Enter longitud here">
+                <button  type="submit" class="btn btn-primary" id="getMapBtn">
+                    Get map and weather location
+                </button>
             </form>
         </div>
-        <div class="col-lg-offset-1 col-lg-2">
-            <button class="btn btn-primary" id="getMapBtn">
-                Get map and weather location
-            </button>
-        </div>
+        <!--<div class="col-lg-offset-1 col-lg-2">-->
+            <!--<button  type="submit" class="btn btn-primary" id="getMapBtn">-->
+                <!--Get map and weather location-->
+            <!--</button>-->
+        <!--</div>-->
     </div>
     <div class="row" id="printWeather">
-        <div id="show_icon">
-            <img>
-        </div>
+
 
     </div>
 
@@ -92,6 +93,18 @@
     $(document).ready(function() {
         "use strict";
 
+        // ===================  INITIAL WEATHER FORECAST SAN ANTONIO
+        $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+            APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
+            cnt: "3",
+            q: "San Antonio, TX",
+            units: "imperial"
+        }).done(function (data) {
+            buildWeatherHtml(data.list)
+        });
+
+
+        // =========function to get just one weather forecast ====
         function makeWeatherReq() {
             var sAweatherAjax = $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
                 APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
@@ -111,7 +124,8 @@
                 console.log("error is: " + error);
             });
         };
-        makeWeatherReq();
+
+//        makeWeatherReq();
 
 
         function buildWeatherHtml(arrObjs) {
@@ -119,16 +133,15 @@
             arrObjs.forEach(function (element, index, array) {
                 weatherArrHtml += "<div class='col-lg-4'>"
                     + "<h3>" + element.temp.min + "/" + element.temp.max + "</h3>"
-                    + "<div id='show_icon'>"
-                        + "<img src=\'http://openweathermap.org/img/w/'> + element.weather[0].icon + .png>"
+                    + "<div class='show_icon'>"
+                        + "<img src='http://openweathermap.org/img/w/" + element.weather[0].icon + ".png'>"
                     + "</div>"
-                    + "<p>" + "logo goes here:" + element.weather[0].icon + "</p>"
                     + "<p>" + "<strong>" + "Clouds: " + "</strong>" + element.clouds + "</p>"
                     + "<p>" + "<strong>" + "Humidity: " + "</strong>" + element.humidity + "</p>"
                     + "<p>" + "<strong>" + "Wind: " + "</strong>" + element.speed + "</p>"
                     + "<p>" + "<strong>" + "Pressure: " + "</strong>" + element.pressure + "</p>"
                     + "</div>";
-//                $("#show_icon").html('<img src="http://openweathermap.org/img/w/' + element.weather[0].icon + '.png">');
+
             });
 
 //            console.log(weatherArrHtml);
@@ -137,13 +150,37 @@
         };
 
 
-//=============================================== BUILDING THE MAP
+//=============================================== BUILDING THE MAP (the initial one)
+//        -2.172280, -79.906401
+//        var mapOptions = {
+//            zoom: 10,
+//            center: {
+//                lat:  29.426791,
+//                lng: -98.489602
+//            }
+//        };
+//
+//        function initMap(optionsObject) {
+//            return new google.maps.Map(document.getElementById("map"), optionsObject);
+//        }
+//
+//        var map = initMap(mapOptions);
+
+//=========================================== lat and long input -- not finished ==========
+        $("#getMapBtn").click(function () {
+            var lat = $("#lat").val();
+//            console.log("this is lat: " + lat);
+            var long = $("#long").val();
+//            console.log("this is longitud: " + long);
+//
+
+        });
+
+//========================== BUILDING THE MAP WITH A DRAGGABLE PIN
+        var myLatlng = new google.maps.LatLng(29.426791,-98.489602);
         var mapOptions = {
-            zoom: 10,
-            center: {
-                lat:  29.426791,
-                lng: -98.489602
-            }
+            zoom: 5,
+            center: myLatlng
         };
 
         function initMap(optionsObject) {
@@ -152,11 +189,33 @@
 
         var map = initMap(mapOptions);
 
-        $("#getMapBtn").click(function () {
-            var locationArray = [];
 
-            console.log("button was clicked");
-        })
+// Place a draggable marker on the map
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            draggable:true,
+            title:"Drag me!"
+        });
+
+
+        google.maps.event.addListener(marker, 'dragend', function (event) {
+            var lat = this.getPosition().lat();
+            var long = this.getPosition().lng();
+            $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+                APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
+                cnt: "3",
+                lat: lat,
+                lon: long,
+                units: "imperial"
+            }).done(function (data) {
+                buildWeatherHtml(data.list);
+            });
+        });
+
+
+
+
 
     });
 </script>
