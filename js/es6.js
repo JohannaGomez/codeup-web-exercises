@@ -67,15 +67,10 @@
   // });
 
   // ES6 version
-
   users.forEach(user => {return emails.push(user.email)});
   console.log(emails);
 
-    // let items = [ {word:'foo', count:3}, {word:'bar', count:9} ];
-    // items.forEach(({word, count}) => console.log(word+' '+count));
-    //
-    // let items = [ ['foo', 3], ['bar', 9] ];
-    // items.forEach(([word, count]) => console.log(word+' '+count));
+
 
   // ES5 version
   // users.forEach(function(user) {
@@ -115,21 +110,22 @@
 
     // =============================================================DONE
 // // TODO: rewrite the following loop to use a for..of loop
-    developers.forEach(function (developer) {
+//     developers.forEach(function (developer) {
+//         list += '<li>' + developer + '</li>';
+//     });
+
+
+    for (let developer of developers) {
         list += '<li>' + developer + '</li>';
-    });
-
-
-    developers.forEach((developer) => {
-        list += `<li> ${developer} </li>`;
-    });
-
+    };
 
 
 
     // =============================================================DONE
     // TODO: rewrite the assignment below to use template strings
-    // list += '</ul>';
-    list += `<ul>`;
+    list += '</ul>';
+    document.body.innerHTML = list;
+
+
 
 }
