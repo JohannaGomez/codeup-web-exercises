@@ -41,23 +41,24 @@
 
 // =============================================================DONE
 // // TODO: rewrite the object literal using object property shorthand
-      users.push({
-        name: name,
-        email: email,
-        languages: languages
-      });
+//       users.push({
+//         name: name,
+//         email: email,
+//         languages: languages
+//       });
 
-        console.log(users);
+    users.push({name, email, languages});
+    console.log(users);
 
 
 
 
 // =============================================================DONE
 // // TODO: replace `var` with `let` in the following variable declarations
-//   let emails = [];
-//   let names = [];
+  let emails = [];
+  let names = [];
 
-    // =============================================================
+    // ============================================================= DONE
 // // TODO: rewrite the following using arrow functions
 
     // ES5 version
@@ -66,10 +67,15 @@
   // });
 
   // ES6 version
-  // for (let user of users) {
-  //     emails.push(user.email);
-  // };
 
+  users.forEach(user => {return emails.push(user.email)});
+  console.log(emails);
+
+    // let items = [ {word:'foo', count:3}, {word:'bar', count:9} ];
+    // items.forEach(({word, count}) => console.log(word+' '+count));
+    //
+    // let items = [ ['foo', 3], ['bar', 9] ];
+    // items.forEach(([word, count]) => console.log(word+' '+count));
 
   // ES5 version
   // users.forEach(function(user) {
@@ -77,39 +83,49 @@
   // });
 
   // ES6 version
-  // for (let name of names) {
-  //     names.push(user.name);
-  // };
+    users.forEach(user => {return names.push(user.name)});
+    console.log(names);
 
 
 // TODO: replace `var` with `let` in the following declaration
 // TODO: rewrite the code below to use object destructuring assignment note that you can also use destructuring assignment in the function parameter definition
 // TODO: rewrite the assignment below to use template strings
-//     let developers = [];
-//     users.forEach(function(user) {
-//       const name = user.name;
-//       const email = user.email;
-//       const languages = user.languages;
-//       developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
-//     });
+    let developers = [];
+    // users.forEach(function(user) {
+    //   const name = user.name;
+    //   const email = user.email;
+    //   const languages = user.languages;
+    //   developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
+    // });
+    // console.log(developers);
+
+    for (let user of users) {
+        const name = user.name;
+        const email = user.email;
+        const languages = user.languages;
+
+        developers.push(`${name} s email is ${email} ${name} knows ${languages.join(', ')}`);
+    };
 
 
-    // for (let user of users) {
-    //     const name = user.name;
-    //     const email = user.email;
-    //     const languages = user.languages;
-    //
-    //     developers.push(${name} `s email is` ${email} ${name} `knows` ${languages.join(', ')});
-    // };
-//
-
-//
+// =============================================================DONE
 // // TODO: Use `let` for the following variable
-//     let list = '<ul>';
-//
-// // TODO: rewrite the following loop to use a for..of loop // TODO: rewrite the assignment below to use template strings
-//     developers.forEach(function (developer) {
-//         list += '<li>' + developer + '</li>';
-//     });
-//     list += '</ul>';
+    let list = '<ul>';
+
+    // =============================================================DONE
+// // TODO: rewrite the following loop to use a for..of loop
+    developers.forEach(function (developer) {
+        list += '<li>' + developer + '</li>';
+    });
+
+    for (let dev of developers) {
+        let list = `<li> ${dev} </li>`;
+    };
+
+
+    // =============================================================DONE
+    // TODO: rewrite the assignment below to use template strings
+    // list += '</ul>';
+    list += `<ul>`;
+
 }
