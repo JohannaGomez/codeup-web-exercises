@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf8">
+
+    <style>
+        #foo {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<h1 class="foo">Codeup Rocks!</h1>
+<ul>
+    <li>item 1</li>
+    <li>item 2</li>
+    <li>item 3</li>
+
+</ul>
+
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+    "use strict";
+    // =======================================  Vanilla JS:
+//    var numbers = [1, 2, 3, 4, 5];
+//    var numbersWithDollars = [];
+//    numbers.forEach(function (number) {
+//        numbersWithDollars.push("$" + number.toFixed(2));
+//    });
+//    console.log(numbersWithDollars);
+
+
+    // ==================ES6 -- Map:  generates a new array instead of using forEach
+    // ===============================it works just with arrays
+    const numbers = [1, 2, 3, 4, 5];
+    const numbersWithDollars = numbers.map(function (number) {
+        return "$" + number.toFixed(2);
+    });
+    console.log(numbersWithDollars);
+
+
+    const artists = ["donovan", "bobby", "janice", "juanito"];
+    const upperCasedArtists = artists.map(function (artist) {
+        let rest = artist.substr(1, artist.length -1);
+        return artist[0].toUpperCase() + rest;
+    });
+    console.log(upperCasedArtists);
+
+
+
+    //=======================filtering filters a collection into a (possibly) smaller collection
+    const mmCandies = ["green", "blue", "red", "yellow", "green", "green", "red", "brown"];
+//    const isGreen = (candy) => {
+//        if (candy == "green") {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    };
+//    const greenMmCandies = mmCandies.filter(isGreen);
+//    console.log(greenMmCandies);
+
+    //or:
+    const greenMmCandies = mmCandies.filter((candy)  => {
+        return (candy == "green") ? true : false;
+    });
+    console.log(greenMmCandies);
+
+    const greenAndBrownMmCandies = mmCandies.filter((candy)  => {
+        if (candy == "green" || candy == "brown") {
+            return true;
+        } else {
+            return false;
+        }
+//        return (candy == "green" || candy == "brown") ? true : false;
+    });
+    console.log(greenAndBrownMmCandies);
+
+
+    // ==========================reduce: reduce a collection to a single value
+//    const sum = numbers.reduce(function (accumulator, element) {
+//        return accumulator + element;
+//    }, 0);
+//    console.log(sum);
+//
+//    let letters = ["C", "o", "d", "e", "u", "p"];
+//    const letterReduction = letters.reduce(function (accumulator, element) {
+//        return accumulator + element;
+//    }, "");
+//    console.log(letterReduction);
+
+//      Use the data below to complete the following tasks
+
+    const users = [
+        {
+            id: 1,
+            name: 'ryan',
+            email: 'ryan@codeup.com',
+            languages: ['clojure', 'javascript'],
+        },
+        {
+            id: 2,
+            name: 'luis',
+            email: 'luis@codeup.com',
+            languages: ['java', 'scala', 'php'],
+        },
+        {
+            id: 3,
+            name: 'zach',
+            email: 'zach@codeup.com',
+            languages: ['javascript', 'bash'],
+        },
+        {
+            id: 4,
+            name: 'fernando',
+            email: 'fernando@codeup.com',
+            languages: ['java', 'php', 'sql'],
+        },
+        {
+            id: 5,
+            name: 'justin',
+            email: 'justin@codeup.com',
+            languages: ['html', 'css', 'javascript', 'php'],
+        },
+    ];
+
+
+//
+//    Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
+        const newArrayUsers = users.filter(function (user) {
+            if (user.languages.length > 2) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        console.log(newArrayUsers);
+
+
+//        Use .map to create an array of strings where each element is a user's email address
+
+
+    const usersEmails = users.map(function (user) {
+        return  user.email;
+    });
+    console.log(usersEmails);
+
+
+//    Use .reduce to transform the array into an object where the object's keys are ids and the values are objects that represent each user
+
+
+    const arrayToObj = (array) =>
+        array.reduce((obj, item) => {
+            obj[item.id] = item;
+            return obj
+        }, {});
+    const peopleObject = arrayToObj(users);
+    console.log(users);
+    console.log(peopleObject);
+
+
+
+</script>
