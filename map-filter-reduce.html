@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Map Filter Reduce</title>
     <meta charset="utf8">
 
     <style>
@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-<h1 class="foo">Codeup Rocks!</h1>
+<h1 class="foo">Map, filter, reduce in ES6</h1>
 <ul>
     <li>item 1</li>
     <li>item 2</li>
@@ -91,6 +91,10 @@
 //    }, "");
 //    console.log(letterReduction);
 
+
+
+//    ===========================================  CURRICULUM EXERCISES ===================================
+
 //      Use the data below to complete the following tasks
 
     const users = [
@@ -127,28 +131,47 @@
     ];
 
 
-//
-//    Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
-        const newArrayUsers = users.filter(function (user) {
-            if (user.languages.length > 2) {
-                return true;
-            } else {
-                return false;
-            }
-        });
-        console.log(newArrayUsers);
+
+//  1.-   Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
+
+//        const newArrayUsers = users.filter(function (user) {
+//            if (user.languages.length > 2) {
+//                return true;
+//            } else {
+//                return false;
+//            }
+//        });
+//        console.log(newArrayUsers);
+
+        // Justin's solution:
+//        const newArrayUsers = users.filter(function (user) {
+//            return (user.languages.length > 2)
+//        });
 
 
-//        Use .map to create an array of strings where each element is a user's email address
+//  2-  Use .map to create an array of strings where each element is a user's email address
 
 
-    const usersEmails = users.map(function (user) {
-        return  user.email;
-    });
-    console.log(usersEmails);
+//    const usersEmails = users.map(function (user) {
+//        return  user.email;
+//    });
+//    console.log(usersEmails);
+
+    // Justin's solution using ES5:
+    // let arrayOfEmails = [];
+//    users.forEach(function(element){
+//        arrayOfEmails.push(element.email);
+//    });
+//    console.log(arrayOfEmails);
+
+    // Justin's solution usuing ES6:
+//    const usersEmails = users.map(function ({email}) {
+//        return  email;
+//    });
+//    console.log(usersEmails);
 
 
-//    Use .reduce to transform the array into an object where the object's keys are ids and the values are objects that represent each user
+//  3.-   Use .reduce to transform the array into an object where the object's keys are ids and the values are objects that represent each user
 
 
     const arrayToObj = (array) =>
@@ -160,6 +183,21 @@
     console.log(users);
     console.log(peopleObject);
 
+
+
+// Ryan's solution:
+//    const usersObject = users.reduce(function (objectAccumulator, user) {
+//        objectAccumulator[user.id] = user;
+//        return objectAccumulator;
+//    }, {});    // the default value has to be an object
+//    console.log(usersObject);
+
+    // his solution is doing this:
+    let object = {};
+    object[users[0].id] = users[0];
+    object[users[1].id] = users[1];
+    object[users[2].id] = users[2];
+    object[users[3].id] = users[3];
 
 
 </script>
