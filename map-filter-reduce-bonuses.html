@@ -90,13 +90,22 @@
 //        });
 //        console.log(arrOfUsersObj);
 
+        // ===================== shorter version:
+//        const arrOfUsersObj = customers.map(function ({name, age}) {
+//            let usersObj = {name, age};
+//            return usersObj;
+//        });
+//        console.log(arrOfUsersObj);
+
+
+
 // PROBLEM 3 - create an array of civil servant customers (teachers and police officers)
 // containing the same properties as the objects on the customers objects
 //            PROBLEM 3 HINT - use .filter()
-//        const arrOfCivilServantCust = customers.filter(function (customer) {
-//            return (customer.occupation == "Teacher"  || customer.occupation == "Police Officer") ? true : false;
-//        });
-//        console.log(arrOfCivilServantCust);
+        const arrOfCivilServantCust = customers.filter(function (customer) {
+            return (customer.occupation == "Teacher"  || customer.occupation == "Police Officer") ? true : false;
+        });
+        console.log(arrOfCivilServantCust);
 
 
 
